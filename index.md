@@ -11,5 +11,5 @@ System.out.println("Hello java!");
 // The first line prints "Hello"
 System.out.print("Hello");
 // The second line prints " java!" and adds a newline
-System.out.prinln(" java!");
+System.out.println(" java!");
 ```
