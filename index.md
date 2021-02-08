@@ -122,3 +122,17 @@ int daysSince = Period.between(d1, d2).getDays();
 int monthsSince = Period.between(d1, d2).getMonths();
 int yearsSince = Period.between(d1, d2).getYears();
 ```
+
+
+## Structure of a Java program
+Java is an Object-Oriented language - thus all programs are structured in terms of classes.
+A java program must have a single class containing a `main`-method. 
+
+### The main-method
+The main method is the point of the program, where the JVM will start execution. 
+
+``` java
+public static void main(String[] args) {
+	return 0;
+}
+```
