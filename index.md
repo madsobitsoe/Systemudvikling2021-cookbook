@@ -1,4 +1,17 @@
 ## Introduction
+This is meant as a quick lookup for "How do I do X in Java" for the SystemsDevelopment 2021 course @ Sundhed og Informatik.
+Documentation can be hard to read and searching the internet for examples might yield bad or irrelevant examples. 
+We hope this page will alleviate some frustrations wrt. programming in Java.
+
+We encourage you to give us feedback. If you find errors, think something is missing or "impossible to understand", please let us know. (Or if you are really a pro, fix/add it yourself and send a pull-request on [github](https://github.com/madsobitsoe/Systemudvikling2021-cookbook/tree/gh-pages)!)
+
+## Contents
+
+- [Java Snippets](#java-snippets)
+- [Classes](#classes)
+- [Objects](#objects)
+- [Methods](#methods)
+- [The main-method](#the-main-method)
 
 ## Java snippets
 
@@ -157,7 +170,7 @@ public class Patient {
 }
 ```
 
-### Objects/Instances
+### Objects
 When you have a class, you have a *blueprint* of some concept or entity, e.g. the Patient modelled above.
 
 To *use* an object, we need to create it. 
