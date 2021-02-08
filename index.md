@@ -214,10 +214,10 @@ public int get42() {
 	return 42;
 }
 ```
-A method that takes one argument: a name with the type `String`.
+A static method that takes one argument: a name with the type `String`.
 It uses the name to generate a greeting message, which is returned.
 ``` java
-public String greet(String name) {
+public static String greet(String name) {
 	return ("Hello, " + name + "!");
 }
 ```
@@ -226,6 +226,29 @@ A method that takes no arguments and returns a "default patient"
 public Patient getDefaultPatient() {
 	Patient p = new Patient("unknown name", 20);
 	return p;
+}
+```
+
+A method in a class Person, that returns the name of the person as a String.
+``` java
+class Person {
+	
+ ... // constructor etc.
+	public String getName() {
+        return this.name;
+	}
+}
+```
+
+A method in a class Person, that overwrites the name of the person. The new name is supplied as an argument of type `String`.
+
+``` java
+class Person {
+	
+ ... // constructor etc.
+	public void setName(String newName) {
+        this.name = newName;
+	}
 }
 ```
 
