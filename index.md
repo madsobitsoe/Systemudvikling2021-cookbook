@@ -128,11 +128,133 @@ int yearsSince = Period.between(d1, d2).getYears();
 Java is an Object-Oriented language - thus all programs are structured in terms of classes.
 A java program must have a single class containing a `main`-method. 
 
+### Classes
+A Class can be thought of as a *blueprint* of something we model, describing the data/attributes that make up the object, as well as what methods, or *actions* are part of the object.
+Examples are always better.
+
+If we are making a health-care application, we might want to model the concept of a patient and associated data. 
+A patient would have *data*, e.g. a Name, and Address, a CPR-number etc. 
+
+A very simple patient class could look like:
+
+``` java
+public class Patient {
+	// The data we want to store with each patient, name and age
+	private String name;
+	private int ageInYears;
+	// The constructor - initializes a new object/instance of a patient
+	public Patient(String name, int ageInYears) {
+		this.name = name;
+		this.ageInYears = ageInYears;
+	}
+	// Methods for accessing the data stored in the patient
+	public String getName() {
+		return this.name;
+	}
+	public int getAgeInYears() {
+		return this.ageInYears;
+	}
+}
+```
+
+### Objects/Instances
+When you have a class, you have a *blueprint* of some concept or entity, e.g. the Patient modelled above.
+
+To *use* an object, we need to create it. 
+We can use the `new` keyword for this.
+
+``` java
+// Assuming the Patient class from earlier is available
+// Create an instance of the Patient class
+Patient myPatient = new Patient("Marvin the Paranoid Android", 42);
+// Now we can use and access the object through the name myPatient.
+// We will print out the patients name, using the getName()-method
+System.out.println("The patients name is: " + myPatient.getName());
+// And print out the patients age, using the getAgeInYears-method 
+System.out.println("The patients age is: " + myPatient.getAgeInYears());
+```
+
+### Methods
+A method is like a python function. In Java, all functions are tied to classes, i.e. they "exist in a class".
+
+A method follows the format
+
+``` java
+[access-modifier] [static*] [return-type] name([arg0type arg0], [arg1type arg1]) { 
+[method-body]
+[return return-value];
+}
+```
+`access-modifier` can be `public`, `private`, `protected`. It defines whether other classes can call the method. 
+`static` is an optional keyword, used if the method is to be declared static.
+
+`return-type` is the *type* of value this method will return. It can be any of javas simple built-in types, e.g. `int`, `double`, `String`, any class that exists in the codebase, e.g. the Patient class from above or `void`. `void` means the method will not return anything.
+
+`name` is the name of the method - what will we write to call this method.
+The parentheses following the `name` contains the arguments to the method. 
+A method does not need to take any arguments. Arguments are separated by comma.
+
+#### Examples
+A method that takes no arguments, and always returns the number 42 - with the type `int`.
+``` java
+public int get42() {
+	return 42;
+}
+```
+A method that takes one argument: a name with the type `String`.
+It uses the name to generate a greeting message, which is returned.
+``` java
+public String greet(String name) {
+	return ("Hello, " + name + "!");
+}
+```
+A method that takes no arguments and returns a "default patient"
+``` java
+public Patient getDefaultPatient() {
+	Patient p = new Patient("unknown name", 20);
+	return p;
+}
+```
+
+Most methods (functions) are tied to a specific instance.
+The `get`-methods in the Patient-class will return different values for each patient object.
+
+
+
+A method can also be `static`. A `static` method is "declared at the class level" as opposed to "declared for each object".
+
+This can be useful in many cases. 
+Examples:
+- We want to create a library of mathematical functions, that can be used without creating an object every time.
+- We want to create functions for validating input-data
+- We want to obtain a connection to a database
+
+In general, if you want to "do something" that is general and not directly related to a specific object/instance, static is a good choice.
+
+
+
 ### The main-method
 The main method is the point of the program, where the JVM will start execution. 
 
+It is a special method that needs to be present. It is not important to understand exactly what it does or what `public static void` means. 
+
+The shortest java-program we can write, is this
 ``` java
 public static void main(String[] args) {
+	// The code will start executing from here
 	return 0;
 }
 ```
+
+`public` is the access-modifier. It means the method (`main`) is accessible from other classes. It needs to be, so the JVM can start the program by calling the main-method. 
+
+`static` means the method belongs to the class, as opposed to the object.
+It is possible to call the method without instantiating an object. (It is not possible to call the method on an object. 
+
+`void` is the return type - or in this case, lack of return type. The method does not "return anything". 
+
+`main(String[] args)`
+
+`main` is the name of the method. Inside parentheses are the arguments or parameters for the method. 
+`String[]` is the `type` of the argument - an array of strings. `args` is *the name* of the first argument. We can use this name to refer to the values inside the main-method. 
+`args` will contain the command-line arguments that was used to start the program. In most cases, `args` will be empty. 
