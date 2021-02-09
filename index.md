@@ -1,6 +1,6 @@
 ## Introduction
 This is meant as a quick lookup for "How do I do X in Java" for the SystemsDevelopment 2021 course @ Sundhed og Informatik.
-Documentation can be hard to read and searching the internet for examples might yield bad or irrelevant examples. 
+Documentation can be hard to read and searching the internet for examples might yield bad or irrelevant examples.
 We hope this page will alleviate some frustrations wrt. programming in Java.
 
 We encourage you to give us feedback. If you find errors, think something is missing or "impossible to understand", please let us know. (Or if you are really a pro, fix/add it yourself and send a pull-request on [github](https://github.com/madsobitsoe/Systemudvikling2021-cookbook/tree/gh-pages)!)
@@ -12,6 +12,60 @@ We encourage you to give us feedback. If you find errors, think something is mis
 - [Objects](#objects)
 - [Methods](#methods)
 - [The main-method](#the-main-method)
+
+
+
+## Syntax
+Java is a programming language with a "C-style syntax", meaning the syntax is heavily inspired by the programming language C. Other languages with C-style syntax include C++, C# and javascript.
+
+### Comments
+Java has two options for comments.
+Single-line comment and multi-line comments.
+
+``` java
+// This is a single-line comment - everything to the right of // is ignored
+
+/*
+This is a multi-line comment. Everything
+between the dash-asterisk and the asterisk-dash is ignored
+*/
+```
+
+### Curly braces (scope)
+Curly braces are used to indicate "scope".
+Scope is a complex topic, so think of them as "where things begin and end".
+In python, different levels of indentation is used to indicate the same thing.
+
+#### Examples
+In an `if-else` construct:
+``` java
+if (true) {
+    //do everything between the braces
+}
+else {
+    // do everything between the braces
+}
+```
+
+In methods:
+
+``` java
+public void someMethod()
+{ // this brace starts the "body" of the method
+
+
+
+} // This brace ends the "body" of the method
+```
+
+In classes:
+
+``` java
+public class MyClass
+{ // This brace "starts the class"
+... // the code making up the body of the class
+} // and this brace ends it
+```
 
 ## Java snippets
 
@@ -139,14 +193,15 @@ int yearsSince = Period.between(d1, d2).getYears();
 
 ## Structure of a Java program
 Java is an Object-Oriented language - thus all programs are structured in terms of classes.
-A java program must have a single class containing a `main`-method. 
+A java program must have a single class containing a `main`-method.
+
 
 ### Classes
 A Class can be thought of as a *blueprint* of something we model, describing the data/attributes that make up the object, as well as what methods, or *actions* are part of the object.
 Examples are always better.
 
-If we are making a health-care application, we might want to model the concept of a patient and associated data. 
-A patient would have *data*, e.g. a Name, and Address, a CPR-number etc. 
+If we are making a health-care application, we might want to model the concept of a patient and associated data.
+A patient would have *data*, e.g. a Name, and Address, a CPR-number etc.
 
 A very simple patient class could look like:
 
@@ -173,7 +228,7 @@ public class Patient {
 ### Objects
 When you have a class, you have a *blueprint* of some concept or entity, e.g. the Patient modelled above.
 
-To *use* an object, we need to create it. 
+To *use* an object, we need to create it.
 We can use the `new` keyword for this.
 
 ``` java
@@ -183,7 +238,7 @@ Patient myPatient = new Patient("Marvin the Paranoid Android", 42);
 // Now we can use and access the object through the name myPatient.
 // We will print out the patients name, using the getName()-method
 System.out.println("The patients name is: " + myPatient.getName());
-// And print out the patients age, using the getAgeInYears-method 
+// And print out the patients age, using the getAgeInYears-method
 System.out.println("The patients age is: " + myPatient.getAgeInYears());
 ```
 
@@ -193,18 +248,18 @@ A method is like a python function. In Java, all functions are tied to classes, 
 A method follows the format
 
 ``` java
-[access-modifier] [static*] [return-type] name([arg0type arg0], [arg1type arg1]) { 
+[access-modifier] [static*] [return-type] name([arg0type arg0], [arg1type arg1]) {
 [method-body]
 [return return-value];
 }
 ```
-`access-modifier` can be `public`, `private`, `protected`. It defines whether other classes can call the method. 
+`access-modifier` can be `public`, `private`, `protected`. It defines whether other classes can call the method.
 `static` is an optional keyword, used if the method is to be declared static.
 
 `return-type` is the *type* of value this method will return. It can be any of javas simple built-in types, e.g. `int`, `double`, `String`, any class that exists in the codebase, e.g. the Patient class from above or `void`. `void` means the method will not return anything.
 
 `name` is the name of the method - what will we write to call this method.
-The parentheses following the `name` contains the arguments to the method. 
+The parentheses following the `name` contains the arguments to the method.
 A method does not need to take any arguments. Arguments are separated by comma.
 
 #### Examples
@@ -232,7 +287,7 @@ public Patient getDefaultPatient() {
 A method in a class Person, that returns the name of the person as a String.
 ``` java
 class Person {
-	
+
  ... // constructor etc.
 	public String getName() {
         return this.name;
@@ -244,7 +299,7 @@ A method in a class Person, that overwrites the name of the person. The new name
 
 ``` java
 class Person {
-	
+
  ... // constructor etc.
 	public void setName(String newName) {
         this.name = newName;
@@ -259,7 +314,7 @@ The `get`-methods in the Patient-class will return different values for each pat
 
 A method can also be `static`. A `static` method is "declared at the class level" as opposed to "declared for each object".
 
-This can be useful in many cases. 
+This can be useful in many cases.
 Examples:
 - We want to create a library of mathematical functions, that can be used without creating an object every time.
 - We want to create functions for validating input-data
@@ -270,9 +325,9 @@ In general, if you want to "do something" that is general and not directly relat
 
 
 ### The main-method
-The main method is the point of the program, where the JVM will start execution. 
+The main method is the point of the program, where the JVM will start execution.
 
-It is a special method that needs to be present. It is not important to understand exactly what it does or what `public static void` means. 
+It is a special method that needs to be present. It is not important to understand exactly what it does or what `public static void` means.
 
 The shortest java-program we can write, is this
 ``` java
@@ -282,15 +337,15 @@ public static void main(String[] args) {
 }
 ```
 
-`public` is the access-modifier. It means the method (`main`) is accessible from other classes. It needs to be, so the JVM can start the program by calling the main-method. 
+`public` is the access-modifier. It means the method (`main`) is accessible from other classes. It needs to be, so the JVM can start the program by calling the main-method.
 
 `static` means the method belongs to the class, as opposed to the object.
-It is possible to call the method without instantiating an object. (It is not possible to call the method on an object. 
+It is possible to call the method without instantiating an object. (It is not possible to call the method on an object.
 
-`void` is the return type - or in this case, lack of return type. The method does not "return anything". 
+`void` is the return type - or in this case, lack of return type. The method does not "return anything".
 
 `main(String[] args)`
 
-`main` is the name of the method. Inside parentheses are the arguments or parameters for the method. 
-`String[]` is the `type` of the argument - an array of strings. `args` is *the name* of the first argument. We can use this name to refer to the values inside the main-method. 
-`args` will contain the command-line arguments that was used to start the program. In most cases, `args` will be empty. 
+`main` is the name of the method. Inside parentheses are the arguments or parameters for the method.
+`String[]` is the `type` of the argument - an array of strings. `args` is *the name* of the first argument. We can use this name to refer to the values inside the main-method.
+`args` will contain the command-line arguments that was used to start the program. In most cases, `args` will be empty.
