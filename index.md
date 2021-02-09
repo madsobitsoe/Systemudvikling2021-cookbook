@@ -6,7 +6,7 @@ We hope this page will alleviate some frustrations wrt. programming in Java.
 We encourage you to give us feedback. If you find errors, think something is missing or "impossible to understand", please let us know. (Or if you are really a pro, fix/add it yourself and send a pull-request on [github](https://github.com/madsobitsoe/Systemudvikling2021-cookbook/tree/gh-pages)!)
 
 ## Contents
-
+- [Syntax](#syntax)
 - [Java Snippets](#java-snippets)
 - [Classes](#classes)
 - [Objects](#objects)
