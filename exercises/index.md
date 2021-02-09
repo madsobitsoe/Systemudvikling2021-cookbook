@@ -1,9 +1,9 @@
 # Solutions for exercises
 - [Week 1](#week-1)
-..* [Task 2](#task-2)
-..* [Task 3](#task-3)
-..* [Task 4](#task-4)
-..* [Task 5](#task-5)
+  * [Task 2](#task-2)
+  * [Task 3](#task-3)
+  * [Task 4](#task-4)
+  * [Task 5](#task-5)
 
 
 ## Week 1
