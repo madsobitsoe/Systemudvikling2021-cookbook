@@ -9,11 +9,102 @@
 
 #### Solution
 
+```
+import java.util.Scanner;
+
+public class Main {
+    // Exercise 2: Make a program that calculates the
+    // cost of an admission of X days length to the price Y per day
+    // Extend the exercise to take inputs as decimal numbers and not only integers45!
+
+    public static void main(String[] args) {
+        // Create a scanner that reads from STDIN
+        Scanner inputscanner = new Scanner(System.in);
+        int days ;
+        int cost;
+        int totalPrice;
+        System.out.println("Please enter the number of days, and cost pr day");
+        System.out.print("Days: ");
+        days = inputscanner.nextInt();
+        System.out.print("Cost pr day: ");
+        cost = inputscanner.nextInt();
+        totalPrice = days * cost;
+        System.out.println("The total price is: " + totalPrice);
+    }
+}
+```
+
+
 ### Task 3
 > Create a program that tells a patient whether his blood percentage (Links to an external site.) requires attention.  Hints? Java if documentation (Links to an external site.)
 
 
 #### Solution
+
+``` java
+import java.util.Scanner;
+
+public class Main {
+    // Exercise 3:
+    // Create a program that tells a patient whether his/her
+    // blood percentage (Links to an external site.) requires attention.
+    // Man måler hæmoglobinniveauet ved at tage en blodprøve.
+    // Normalområdet for koncentrationen af hæmoglobin hos voksne:
+    //
+    // Male: 8.3-10.5 mmol/L
+    // Female: 7.3-9.5 mmol/L
+    //
+    // Notice that decimal(floating) numbers must be entered as "," (e.g 9,5)
+    // in the console if using danish locale
+    //
+    // E.g. try to enhance the code to ignore the case of the input!
+    // or to keep asking in a loop until the user types a special character
+
+    public static void main(String[] args) {
+	    // Create a scanner that reads from STDIN
+        Scanner inputscanner = new Scanner(System.in);
+        Character c =' ' ;
+        float bp;
+        int totalPrice;
+
+        double bpMaleLowWaterMark = 8.3;
+        double bpMaleHighWaterMark = 10.5;
+
+        double bpFemaleLowWaterMark = 7.3;
+        double bpFemaleHighWaterMark = 9.5;
+
+        System.out.println("Please enter your sex (M/F), and blod percentage in mmol/L");
+        System.out.print("Sex (M/F):");
+        c = inputscanner.next().charAt(0);
+
+        System.out.print("Blod percentage in mmol/L: ");
+        bp = inputscanner.nextFloat();
+
+        if (c.equals('M')) {
+            if (bp <= bpMaleLowWaterMark) {
+                System.out.println("Your blood percentage is too low\nPlease see a doctor");
+            }
+            else if (bpMaleLowWaterMark <= bp &&  bp <= bpMaleHighWaterMark) {
+                System.out.println("Your blood percentage is fine");
+            } else {
+                System.out.println("Your blood percentage is too high\nPlease see a doctor");
+            }
+        } else if (c.equals('F')) {
+            if (bp <= bpFemaleLowWaterMark) {
+                System.out.println("Your blood percentage is too low\nPlease see a doctor");
+            }
+            else if (bpFemaleLowWaterMark <= bp && bp <= bpFemaleHighWaterMark) {
+                System.out.println("Your blood percentage is fine");
+            } else {
+                System.out.println("Your blood percentage is too high\nPlease see a doctor");
+            }
+        } else {
+            System.out.println("Sex must be M (Male) or F (Female)");
+        }
+    }
+}
+```
+
 
 ### Task 4
 > Create a program that registers patient data: Name and CPR number and address, and determines the patient age and his/her gender
