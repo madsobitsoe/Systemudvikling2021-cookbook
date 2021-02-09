@@ -5,8 +5,12 @@
 ## Week 1
 ### Task 2
 > Make a program that calculates the cost of an admission of X days length to the price Y per day.
+
+
 ### Task 3
 > Create a program that tells a patient whether his blood percentage (Links to an external site.) requires attention.  Hints? Java if documentation (Links to an external site.)
+
+
 ### Task 4
 > Create a program that registers patient data: Name and CPR number and address, and determines the patient age and his/her gender
 > 1. Create a new Java Project in IntelliJ
@@ -17,8 +21,8 @@
 > 6. Determine the assigned gender of the patient
 > 7. Print out the information to the console
 
-### Task 5
 
+### Task 5
 > Modify the program you created in task 4 to perform minimal error checking.
 >
 > Ensure that:
