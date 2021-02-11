@@ -196,3 +196,180 @@ public class Main {
 
 
 #### Solution
+
+**note:** This is *one way* to do this. The exercise is very loose wrt. requirements and the learning goals are:
+1. Get acquainted with Java
+2. Realise that parsing data from a user is a massive endeavour
+
+If any of the code is confusing, please ask Mads to explain it in the exercise classes.
+
+``` java
+package com.company;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+
+public class Main {
+    /*
+    Modify the program you created in task 4 to perform minimal error checking.
+    Ensure that:
+    - A name can only consist of Letters, not numbers.
+    - A name is at least a first- and last name
+    - A CPR follows the format ddmmyy-XXXX
+    - If the input patient data does not live up to the requirements, notify the user by printing a message.
+
+    - If the data fulfills the requirements, print out the patient data, age and assigned gender as in task 4.
+    Consider using methods to perform your validation.
+     */
+    static Scanner inputscanner;
+
+    // A static method to get a patient's name
+    // This can get quite complicated, as we should handle
+    // øæå (and ÿ and ö and every other special letter)
+    // and potential middle names
+    public static String getName() {
+        int max_length = 80;
+        boolean valid = false;
+        String input = "";
+        // A string-array to hold all the names of the input
+        // Initialize it to an empty array
+        String[] names = {};
+        System.out.print("Please enter the patients name: ");
+        while (!valid) {
+            input = inputscanner.nextLine();
+            // We assume all names are at least two characters long
+            // and a patient must have at least two names, separated by at least one space
+            // so the input must be at least 5 characters long (incl. space)
+            if (input.length() >= 5 && input.length() < max_length) {
+                // Split the input into separate strings on all spaces
+                // The regex " +" will skip 1-or-more spaces
+                names = input.split(" +");
+                // We need to check if all names are valid
+                // Start by ensuring there are at least two names in the array
+                boolean allNamesValid = names.length >= 2;
+                if (allNamesValid) {
+                    // Loop over all names in the array
+                    for (String name: names) {
+                        // Update allNamesValid with the truth-value of the next name
+                        allNamesValid = allNamesValid && name.chars().allMatch(Character::isAlphabetic);
+                    }
+                }
+                valid = allNamesValid;
+            }
+            if (!valid){
+                System.out.print("Not a valid name. Please try again: ");
+            }
+        }
+        String fullName = Arrays.stream(names).collect(Collectors.joining(" "));
+        return fullName;
+    }
+    // Just stick to the format for this exercise, don't bother with Mod11
+    public static String getCPR() {
+        boolean valid = false;
+        String input = "";
+        System.out.print("Please enter the patients cpr: ");
+        while (!valid) {
+            input = inputscanner.nextLine();
+            if (input.trim().matches("^[0-9]{6}-[0-9]{4}$")) {
+                valid = true;
+            }
+            else {
+                System.out.print("Not a valid cpr. Please try again: ");
+            }
+        }
+        return input.trim();
+    }
+
+    // Method to get a (simplified) address (Not part of the assignment!)
+    // We assume the format is:
+    // "streetName XX, PPPP cityname" where XX is the number of the street and PPPP is a postal code.
+    // Could be extended to handle floors and apartment numbers as well
+    // Does not handle streetnumbers of type ddX, where dd are digits and X is a letter (e.g. 11b or 17c)
+    public static String getAddress() {
+        boolean valid = false;
+        String input = "";
+        String streetName = "";
+        String streetNumber = "";
+        String postcode = "";
+        String cityName = "";
+        System.out.println("Please enter the patients address.");
+        while (!valid) {
+            // Grab the 4 needed strings from the user
+            System.out.print("Street: ");
+            streetName = inputscanner.nextLine().trim();
+            System.out.print("Street number: ");
+            streetNumber = inputscanner.nextLine().trim();
+            System.out.print("Postal code: ");
+            postcode = inputscanner.nextLine().trim();
+            System.out.print("City: ");
+            cityName = inputscanner.nextLine().trim();
+
+            // streetname must be at least two alphabetic characters long
+            valid = streetName.length() >= 2 && streetName.chars().allMatch(Character::isAlphabetic);
+            // Streetnumber must be a number
+            valid = valid && streetNumber.chars().allMatch(Character::isDigit);
+            // Postal code must be exactly 4 digits
+            valid = valid && postcode.chars().allMatch(Character::isDigit);
+            // City must be must be at least two alphabetic characters long
+            valid = valid && cityName.length() >= 2 && cityName.chars().allMatch(Character::isAlphabetic);
+
+            if (!valid) {
+                System.out.print("Not a valid Address. Please try again: ");
+            }
+        }
+        String fullAddress = streetName + " " + streetNumber + ", " + postcode + " " + cityName;
+        return fullAddress;
+    }
+    // Method for calculating a patient's age from their CPR-number
+    public static int getAge(String cpr) {
+        // Create a custom datetimeformatter for the cpr string, so we can calculate age.
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("ddMMuu");
+        LocalDate today = LocalDate.now();
+        LocalDate birthdate = LocalDate.parse(cpr.substring(0,6), dateFormatter);
+        // If the birthdate is after today, it's probably in the 1900's. Subtract 100 years.
+        if (birthdate.isAfter(today)) { birthdate = birthdate.minusYears(100); }
+        int age = Period.between(birthdate, today).getYears();
+        return age;
+    }
+    public static boolean genderIsFemale(String cpr) {
+        // Grab the last digit of the cpr-string, convert it to an integer
+        int lastDigitInCpr = Integer.parseInt(cpr.substring(9));
+        // If the last digit is an even number, cpr-assigned gender is female
+        return lastDigitInCpr % 2 == 0;
+    }
+
+    public static void main(String[] args) {
+	    // Create a scanner that reads from STDIN
+        inputscanner = new Scanner(System.in);
+        // Fields for the data we need to collect
+        String name;
+        String cpr;
+        String address;
+
+        System.out.println("Please enter the patients name, cpr-number and address.");
+        // Use the getName method to obtain the patient's name
+        name = getName();
+        System.out.print("CPR: ");
+        // Use the getCPR method to obtain the patient's CPR-number
+        cpr = getCPR();
+        // Use the getAddress method to obtain the patient's address
+        address = getAddress();
+        System.out.println("The patients name: " + name +", cpr: " + cpr + ", address: " + address);
+        int age = getAge(cpr);
+        boolean assignedGenderIsFemale = genderIsFemale(cpr);
+        System.out.println("The patient is " + age + " years old.");
+        System.out.print("The patients assigned gender is: ");
+        if (assignedGenderIsFemale) {
+            System.out.println("female");
+        }
+        else {
+            System.out.println("male");
+        }
+    }
+}
+```
