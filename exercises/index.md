@@ -40,7 +40,7 @@ public class Main {
 
 
 ### Task 3
-> Create a program that tells a patient whether his blood percentage (Links to an external site.) requires attention.  Hints? Java if documentation (Links to an external site.)
+> Create a program that tells a patient whether his blood percentage requires attention.
 
 
 #### Solution
@@ -51,7 +51,7 @@ import java.util.Scanner;
 public class Main {
     // Exercise 3:
     // Create a program that tells a patient whether his/her
-    // blood percentage (Links to an external site.) requires attention.
+    // blood percentage requires attention.
     // Man måler hæmoglobinniveauet ved at tage en blodprøve.
     // Normalområdet for koncentrationen af hæmoglobin hos voksne:
     //
@@ -192,7 +192,9 @@ public class Main {
 > - If the data fulfills the requirements, print out the patient data, age and assigned gender as in task 4.
 > - Consider using methods to perform your validation.
 >
-> - *Bonus requirement*: Check that the CPR number is valid with Mod11. (https://da.wikipedia.org/wiki/Modulus_11 (Links to an external site.)) (https://da.wikipedia.org/wiki/CPR-nummer#Kontrolciffer_(det_gamle_CPR-nummer) (Links to an external site.))
+> - *Bonus requirement*: Check that the CPR number is valid with Mod11.
+>     - https://da.wikipedia.org/wiki/Modulus_11
+>     - https://da.wikipedia.org/wiki/CPR-nummer#Kontrolciffer_(det_gamle_CPR-nummer)
 
 
 #### Solution
