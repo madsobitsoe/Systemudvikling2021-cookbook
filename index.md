@@ -272,6 +272,35 @@ An ArrayList can only contain objects, not "primitive data types" such as `int`,
 
 ArrayLists are `Collections` - so we can use the methods in `java.util.Collections` to operate on them.
 
+### Creating an ArrayList
+
+To create an ArrayList, we write:
+
+``` java
+ArrayList<[type]> nameOfArrayList = new ArrayList();
+```
+
+Here, `[type]` is the class/type of object we want to store in the array list. We replace `[type]` with the name of the class.
+`nameOfArrayList` is the variable name we want to use for referring to the ArrayList.
+
+If we want a list of integers, we would write:
+
+``` java
+ArrayList<Integer> numbers = new ArrayList();
+```
+
+or, if we want a list of `String`s to store names:
+
+``` java
+ArrayList<String> names = new ArrayList();
+```
+
+or, if we want a list of Patient-objects and have a class called `Patient`:
+``` java
+ArrayList<Patient> patients = new ArrayList();
+```
+
+
 ### Examples of use
 #### Creating an ArrayList of Integers
 This will create an ArrayList, containing `{8, 42, 1990}`
