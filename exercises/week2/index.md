@@ -71,7 +71,7 @@ Mark the directory as "Test Sources Root"
 - Begin implementing the method. Start by ensuring the length of the string is exactly 11 characters long. If not, the cpr is definitely invalid.
 Once all three tests pass, add more testcases. Consider what invalid input could be, write a test-case based on that and ensure your method handles it correctly.
 
-##### Bonus task (a bit harder)
+#### Bonus task (a bit harder)
 Use the LocalDate-library to parse the given date and ensure the first six numbers make up an actual date. (i.e. 010165-XXXX is valid, 476501-XXXX is not)
 To do this, you will need to use exception handling as well, specifically a try-catch block.
 
@@ -92,7 +92,7 @@ public boolean isValidCPR() {
     }
 }
 ```
-##### Extra-bonus task
+#### Extra-bonus task
 
 Implement the two methods `isValidName` and `isValidAddress`, using test-driven development.
 This will require you to define what a valid name and address is.
