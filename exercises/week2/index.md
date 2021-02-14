@@ -60,17 +60,18 @@ public DataValidator {
 
 #### Setting up testing
 
--  Create a new directory in your project called "test".
+-  Create a new directory in your project called `test`.
 Mark the directory as "Test Sources Root"
 - Create a Test-class for the DataValidator class (and install JUnit 5.4 if you haven't already)
 - Write three individual testcases for the `isValidCPR` method:
-    -* Give an invalid cpr-number, containing letters. Assert the result is false. (hint: "12631abc" is an invalid format)
-    -* Give a cpr-number with an invalid format, containing too few characters. Assert the result is false. (hint: "1234567890" is an invalid format, it does not have the hyphen)
-    -* Give a cpr-number with a valid format. Assert the result is true. (For our purposes, "ddmmyy-XXXX" is a valid format)
+    - Give an invalid cpr-number, containing letters. Assert the result is false. (hint: "12631abc" is an invalid format)
+    - Give a cpr-number with an invalid format, containing too few characters. Assert the result is false. (hint: "1234567890" is an invalid format, it does not have the hyphen)
+    - Give a cpr-number with a valid format. Assert the result is true. (For our purposes, "ddmmyy-XXXX" is a valid format)
 - Run the tests. Two of them should "pass", as we expect false. Remember we haven't written the code for the method yet!
 - Begin implementing the method. Start by ensuring the length of the string is exactly 11 characters long. If not, the cpr is definitely invalid.
 Once all three tests pass, add more testcases. Consider what invalid input could be, write a test-case based on that and ensure your method handles it correctly.
-##### Bonus exercise (a bit harder)
+
+##### Bonus task (a bit harder)
 Use the LocalDate-library to parse the given date and ensure the first six numbers make up an actual date. (i.e. 010165-XXXX is valid, 476501-XXXX is not)
 To do this, you will need to use exception handling as well, specifically a try-catch block.
 
@@ -81,16 +82,20 @@ You can use the following template as a starting point:
 ``` java
 public boolean isValidCPR() {
 ... // the code you already have is here
-try {
-    // Attempt to parse a date with LocalDate here
-}
-catch (java.time.format.DateTimeParseException ex) {
-    // If the parsing failed, a DateTimeParseException will be "thrown"
-    // And the java program will jump to this piece of code
-    // This would mean the date is not a valid date, thus not a valid cpr-number.
-
+    try {
+        // Attempt to parse a date with LocalDate here
+    }
+    catch (java.time.format.DateTimeParseException ex) {
+        // If the parsing failed, a DateTimeParseException will be "thrown"
+        // And the java program will jump to this piece of code
+        // This would mean the date is not a valid date, thus not a valid cpr-number.
+    }
 }
 ```
+##### Extra-bonus task
+
+Implement the two methods `isValidName` and `isValidAddress`, using test-driven development.
+This will require you to define what a valid name and address is.
 
 
 ## Task 2
@@ -118,13 +123,13 @@ You can do all of the ArrayList-exercises in the main-method of this new project
 ### Task 2.3
 
 - Create an ArrayList
-- add the Strings: "Hello", "Systemudvikling!", "Look", "at", "me", "," "I'm", "using", "ArrayLists", "like", "a", "pro"
+- add the Strings: `"Hello"`, `"Systemudvikling!"`, `"Look"`, `"at"`, `"me"`, `","`, `"I'm"`, `"using"`, `"ArrayLists"`, `"like"`, `"a"`, `"pro!"`
 - loop over the ArrayList and print out each string on the same line. Separate the strings with a space.
 
 
 ### Task 2.4
 - Create an ArrayList
-- add the Strings: "pro" , "REAL" , "a" , "like" , "ArrayLists" , "using" , "I'm" , "," , "me" , "at" , "Look" , "Systemudvikling!" , "Hello"
+- add the Strings: `"pro!"` , `"REAL"` , `"a"` , `"like"` , `"ArrayLists"` , `"using"` , `"I'm"` , `","` , `"me"` , `"at"` , `"Look"` , `"Systemudvikling!"` , `"Hello"`
 - reverse the ArrayList, using `Collections.reverse(theListYouWantToReverse)`. (hint: `import java.util.Collections;`)
 - loop over the reversed ArrayList and print out each string on the same line. Separate the strings with a space.
 Try to get the result to look exactly the same as in the previous exercise.
