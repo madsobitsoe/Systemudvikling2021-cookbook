@@ -229,7 +229,7 @@ If we have a collection, e.g. an ArrayList, we can iterate over each item with a
 The following code will print out the numbers 1, 2 and 3, on separate lines.
 
 ``` java
-ArrayList<int> numbers = new ArrayList();
+ArrayList<Integer> numbers = new ArrayList();
 numbers.add(1);
 numbers.add(2);
 numbers.add(3);
