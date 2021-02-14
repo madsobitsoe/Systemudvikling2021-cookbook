@@ -5,13 +5,14 @@ FILL OUT
 Expected in exercises: Task 1, making a unit test and running it.
 Expected as "homework": The rest.
 
-1) Repeat part of the exercise from last week, using a test-driven approach.
+## Task 1
+### Repeat part of the exercise from last week, using a test-driven approach.
 We will focus only on validating CPR-numbers in this exercise. "valid" names and addresses are tricky to define precisely, but cpr is straight-forward; at least compared to names and addresses.
 
 We will create a class, DataValidator, that we can use to validate different things.
 An example use:
 
-```
+``` java
 public static void main(String[] args) {
  Scanner inputScanner = new Scanner(System.in);
         // Create a DataValidator object
@@ -36,7 +37,7 @@ public static void main(String[] args) {
 Initially, "stub" the method by making it return false in all cases.
 You can use the following template. (Type it yourself - it's good practice!)
 
-```
+``` java
 public DataValidator {
     public boolean isValidCPR(String cpr) {
         return false;
@@ -64,7 +65,10 @@ Mark the directory as "Test Sources Root"
 Once all three tests pass, add more testcases. Consider what invalid input could be, write a test-case based on that and ensure your method handles it correctly.
 1.1.7) Use the LocalDate-library to parse the given date and ensure the first six numbers make up an actual date. (i.e. 010165-XXXX is valid, 476501-XXXX is not)
 
-1.2) ArrayLists
+
+## Task 2
+### ArrayLists
+
 Look at the examples with arrayList (TODO - examples!).
 Type them in and run them.
 
@@ -93,12 +97,14 @@ Type them in and run them.
 Try to get the result to look exactly the same as in the previous exercise.
 
 
-
+## Task 3
+### Classes, Patients and PatientRegisters
 
 
 1.3.1) Create a new class, Patient.
 The Patient-class should have fields/attributes for name and cpr.
-```
+
+``` java
 public class Patient {
     // Add a field/attribute for the patients name here.
     // The field should be public.
@@ -124,7 +130,8 @@ public class Patient {
 This class will act as a "container" for registered patients.
 The PatientRegister should have an ArrayList of Patient-objects, called `patients` and methods to add patients, remove patients and print them.
 Use the following template:
-```
+
+``` java
 import java.util.ArrayList;
 
 public class PatientRegister {
@@ -161,7 +168,10 @@ create
 1.3.3.4) Remove one (or more) of the patients, using the removePatients method.
 1.3.3.5) Call printPatients to print out the remaining patients.
 
-1.4) Adding methods and more testing
+
+## Task 4
+### Adding methods and more testing
+
 1.4.1)
 In the Patient-class, add a getAge()-method. (public int getAge() { ... })
 The method should calculate the the patient's age based on the patients CPR-number.
