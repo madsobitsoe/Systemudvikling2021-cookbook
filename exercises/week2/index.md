@@ -109,26 +109,26 @@ You can do all of the ArrayList-exercises in the main-method of this new project
 
 ### Task 2.1
 
-- Create an ArrayList
-- add the integers (`int`) 1, 1, 2, 5, 8, 13, 21, 34, 55 to the list
+- Create an ArrayList of `Integer`
+- add the numbers (`Integer`) 1, 1, 2, 5, 8, 13, 21, 34, 55 to the list
 - loop over the ArrayList and print out each number on a separate line
 
 ### Task 2.2
-- Create an ArrayList
-- add the integers (`int`) 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 to the list
+- Create an ArrayList of `Integer`
+- add the integers (`Integer`) 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 to the list
 - create a variable, `int sum = 0;`
-- loop over the ArrayList and add each number to the sum.
+- loop over the ArrayList and add each number to the `sum`.
 - Print out the result. (It should be 55)
 
 ### Task 2.3
 
-- Create an ArrayList
+- Create an ArrayList of `String`
 - add the Strings: `"Hello"`, `"Systemudvikling!"`, `"Look"`, `"at"`, `"me"`, `","`, `"I'm"`, `"using"`, `"ArrayLists"`, `"like"`, `"a"`, `"pro!"`
 - loop over the ArrayList and print out each string on the same line. Separate the strings with a space.
 
 
 ### Task 2.4
-- Create an ArrayList
+- Create an ArrayList of `String`
 - add the Strings: `"pro!"` , `"REAL"` , `"a"` , `"like"` , `"ArrayLists"` , `"using"` , `"I'm"` , `","` , `"me"` , `"at"` , `"Look"` , `"Systemudvikling!"` , `"Hello"`
 - reverse the ArrayList, using `Collections.reverse(theListYouWantToReverse)`. (hint: `import java.util.Collections;`)
 - loop over the reversed ArrayList and print out each string on the same line. Separate the strings with a space.
