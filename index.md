@@ -8,6 +8,7 @@ We encourage you to give us feedback. If you find errors, think something is mis
 ## Contents
 - [Syntax](#syntax)
 - [Java Snippets](#java-snippets)
+- [Loops](#loops)
 - [Classes](#classes)
 - [Objects](#objects)
 - [Methods](#methods)
@@ -190,6 +191,74 @@ int monthsSince = Period.between(d1, d2).getMonths();
 int yearsSince = Period.between(d1, d2).getYears();
 ```
 
+
+## Loops
+
+### While-loops
+
+A while loop can be used, whenever we want to do 1 thing until a condition is fulfilled.
+
+For example, if we want to keep printing numbers until we reach a certain number:
+``` java
+int number = 1;
+while (number < 10) {
+    // Print the current number
+    System.out.println("Number: " + number);
+    // Increment the number by 1
+    number = number + 1;
+}
+```
+
+Or  if we want to repeatedly ask the user for input, until they provide us with a "valid" input.
+
+``` java
+Scanner inputScanner = new Scanner(System.in);
+System.out.print("Please enter CPR-number: ");
+// Get input from the user
+String userInput = inputScanner.nextLine();
+// While the input is not valid, keep asking the user for input
+while (!isValidCPR(userInput) {
+    System.out.print("Not a valid cpr! Please try again: ");
+    userInput = inputScanner.nextLine();
+}
+
+```
+
+### For-each loops
+If we have a collection, e.g. an ArrayList, we can iterate over each item with a for-each loop.
+The following code will print out the numbers 1, 2 and 3, on separate lines.
+
+``` java
+ArrayList<int> numbers = new ArrayList();
+numbers.add(1);
+numbers.add(2);
+numbers.add(3);
+for (int number : numbers) {
+    System.out.println(number);
+}
+```
+
+The format of a for-each loop is:
+
+``` java
+for ([type] nameInLoop : [theCollection]) {
+    // here we can refer to the "current item" by writing nameInLoop
+    // The loop body, everything between the curly braces, will be run
+    // one time for each of the items, or objects, in theCollection
+}
+
+```
+
+### For-loops
+If we want to run the same piece of code a certain number of times and we know exactly how many times, we can use a for-loop.
+
+``` java
+for (int i = 0; i < 10; i++) {
+    System.out.println("Loop iteration: " + i);
+}
+```
+
+You will typically want to use for-each loops instead.
 
 ## Structure of a Java program
 Java is an Object-Oriented language - thus all programs are structured in terms of classes.
