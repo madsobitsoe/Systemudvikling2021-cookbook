@@ -9,6 +9,7 @@ We encourage you to give us feedback. If you find errors, think something is mis
 - [Syntax](#syntax)
 - [Java Snippets](#java-snippets)
 - [Loops](#loops)
+- [ArrayList](#arraylist)
 - [Classes](#classes)
 - [Objects](#objects)
 - [Methods](#methods)
@@ -260,9 +261,56 @@ for (int i = 0; i < 10; i++) {
 
 You will typically want to use for-each loops instead.
 
+
+
+## ArrayList
+
+An ArrayList is similar to a python-list. We can use them to store objects.
+
+An ArrayList needs to have a type, and all objects in the ArrayList has to be of that type. We cannot mix e.g.  `String` and `Integer`.
+An ArrayList can only contain objects, not "primitive data types" such as `int`, `boolean` and `double`. To store numbers, we need to use a "wrapper" class.
+
+ArrayLists are `Collections` - so we can use the methods in `java.util.Collections` to operate on them.
+
+### Examples of use
+#### Creating an ArrayList of Integers
+This will create an ArrayList, containing `{8, 42, 1990}`
+
+``` java
+ArrayList<Integer> numbers = new ArrayList();
+numbers.add(8);
+numbers.add(42);
+numbers.add(1990);
+```
+
+#### Reversing an ArrayList
+This will reverse the ArrayList, so it will contain `{1990, 42, 8}`
+
+``` java
+ArrayList<Integer> numbers = new ArrayList();
+numbers.add(8);
+numbers.add(42);
+numbers.add(1990);
+Collections.reverse(numbers);
+```
+
+#### Sorting an ArrayList
+This will sort the Arraylist `numbers`, so it will contain `{1, 4, 8, 42}`.
+
+``` java
+ArrayList<Integer> numbers = new ArrayList();
+numbers.add(8);
+numbers.add(4);
+numbers.add(42);
+numbers.add(1);
+Collections.sort(numbers);
+```
+
+
 ## Structure of a Java program
 Java is an Object-Oriented language - thus all programs are structured in terms of classes.
 A java program must have a single class containing a `main`-method.
+
 
 
 ### Classes
