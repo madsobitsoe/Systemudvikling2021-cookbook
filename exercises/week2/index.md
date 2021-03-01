@@ -185,12 +185,54 @@ You can do all of the ArrayList-exercises in the main-method of this new project
 - add the numbers (`Integer`) 1, 1, 2, 5, 8, 13, 21, 34, 55 to the list
 - loop over the ArrayList and print out each number on a separate line
 
+
+#### Solution
+
+``` java
+        ArrayList<Integer> listInteger = new ArrayList<Integer>();
+        listInteger.add(1);
+        listInteger.add(1);
+        listInteger.add(2);
+        listInteger.add(5);
+        listInteger.add(8);
+        listInteger.add(13);
+        listInteger.add(21);
+        listInteger.add(34);
+        listInteger.add(55);
+        for (int i: listInteger) {
+            System.out.println(i);
+        }
+```
+
+
 ### Task 2.2
 - Create an ArrayList of `Integer`
 - add the integers (`Integer`) 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 to the list
 - create a variable, `int sum = 0;`
 - loop over the ArrayList and add each number to the `sum`.
 - Print out the result. (It should be 55)
+
+#### Solution
+
+``` java
+        ArrayList<Integer> listInteger2 = new ArrayList<Integer>();
+        listInteger2.add(1);
+        listInteger2.add(2);
+        listInteger2.add(3);
+        listInteger2.add(4);
+        listInteger2.add(5);
+        listInteger2.add(6);
+        listInteger2.add(7);
+        listInteger2.add(8);
+        listInteger2.add(9);
+        listInteger2.add(10);
+
+        int sum = 0;
+        for (int i: listInteger2) {
+            sum += i;
+        }
+        System.out.println("the sum is " + sum);
+```
 
 ### Task 2.3
 
@@ -199,12 +241,65 @@ You can do all of the ArrayList-exercises in the main-method of this new project
 - loop over the ArrayList and print out each string on the same line. Separate the strings with a space.
 
 
+``` java
+        ArrayList<String> listString1 = new ArrayList<String>();
+        listString1.add("Hello");
+        listString1.add("Systemudvikling!");
+        listString1.add("Look");
+        listString1.add("at");
+        listString1.add("me");
+        listString1.add(",");
+        listString1.add("I'm");
+        listString1.add("using");
+        listString1.add("ArrayLists");
+        listString1.add("like");
+        listString1.add("a");
+        listString1.add("pro");
+        for (String i: listString1) {
+            if (! i.equals(listString1.get(listString1.size()-1))) {
+                System.out.print(i + " ");
+            } else {
+                System.out.print(i);
+            }
+        }
+        System.out.println("!!!");
+```
+
 ### Task 2.4
 - Create an ArrayList of `String`
 - add the Strings: `"pro!"` , `"REAL"` , `"a"` , `"like"` , `"ArrayLists"` , `"using"` , `"I'm"` , `","` , `"me"` , `"at"` , `"Look"` , `"Systemudvikling!"` , `"Hello"`
 - reverse the ArrayList, using `Collections.reverse(theListYouWantToReverse)`. (hint: `import java.util.Collections;`)
 - loop over the reversed ArrayList and print out each string on the same line. Separate the strings with a space.
 Try to get the result to look exactly the same as in the previous exercise.
+
+#### Solution
+
+``` java
+        ArrayList<String> listString2 = new ArrayList<String>();
+        listString2.add("pro");
+        listString2.add("a");
+        listString2.add("like");
+        listString2.add("ArrayLists");
+        listString2.add("using");
+        listString2.add("I'm");
+        listString2.add(",");
+        listString2.add("me");
+        listString2.add("at");
+        listString2.add("Look");
+        listString2.add("Systemudvikling!");
+        listString2.add("Hello");
+
+        Collections.reverse(listString2);
+
+        for (String i: listString2) {
+            if (! i.equals(listString2.get(listString2.size()-1))) {
+                System.out.print(i + " ");
+            } else {
+                System.out.print(i);
+            }
+        }
+        System.out.println("!!!");
+```
 
 
 ## Task 3
