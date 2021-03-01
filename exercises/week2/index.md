@@ -98,6 +98,170 @@ Implement the two methods `isValidName` and `isValidAddress`, using test-driven 
 This will require you to define what a valid name and address is.
 
 
+
+### Solution Task 1
+#### Main.java
+
+``` java
+package dk.diku.systemudvikling2021;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner inputScanner = new Scanner(System.in);
+        // Create a DataValidator object
+        DataValidator dv = new DataValidator();
+        System.out.print("Please enter CPR: ");
+        // Get (first attempt) user input (and remove leading and trailing whitespace)
+        String input = inputScanner.nextLine().trim();
+        // While the input is not valid, repeat
+        while (!dv.isValidCPR(input)) {
+            System.out.print("Invalid cpr. Try again: ");
+            input = inputScanner.nextLine().trim();
+        }
+        // At this point, the cpr stored in `input` is a valid CPR.
+        System.out.println("The entered CPR: " + input);
+
+
+	    PatientRegister patientRegister = new PatientRegister();
+	    Patient patient1 = new Patient("Patient Zero", "010165-1213");
+	    Patient patient2 = new Patient("Not Sick At All", "010170-1215");
+        Patient patient3 = new Patient("Very Sicksen", "051290-1511");
+
+        patientRegister.addPatient(patient1);
+        patientRegister.addPatient(patient2);
+        patientRegister.addPatient(patient3);
+        System.out.println("3 patients added.");
+        System.out.println("All current patients:");
+        patientRegister.printPatients();
+        patientRegister.removePatient(patient1);
+        System.out.println("1 patient removed.");
+        System.out.println("All current patients:");
+        patientRegister.printPatients();
+    }
+}
+
+```
+
+#### Patient.java
+
+``` java
+package dk.diku.systemudvikling2021;
+
+public class Patient {
+    public String name;
+    public String cpr;
+    public Patient(String name, String cpr) {
+        this.name = name;
+        this.cpr = cpr;
+    }
+}
+```
+
+#### PatientRegister.java
+
+``` java
+package dk.diku.systemudvikling2021;
+
+import java.util.ArrayList;
+
+public class PatientRegister {
+    public ArrayList<Patient> patients;
+    public PatientRegister() {
+        this.patients = new ArrayList<Patient>();
+    }
+    public void addPatient(Patient patient) {
+        if (!patients.contains(patient)) {
+            patients.add(patient);
+        }
+    }
+    public void removePatient(Patient patient) {
+        patients.remove(patient);
+    }
+    public void printPatients() {
+        for (Patient p: patients) {
+            System.out.println("Name: " + p.name + ", cpr: " + p.cpr);
+        }
+    }
+    public ArrayList<Patient> getPatients() {
+        return this.patients;
+
+    }
+}
+```
+
+#### DataValidator.java
+
+``` java
+package dk.diku.systemudvikling2021;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class DataValidator {
+    public boolean isValidCPR(String cpr) {
+      boolean valid = true;
+      String trimmed = cpr.trim();
+      if (trimmed.length() != 11) {
+          valid = false;
+      }
+      // We have the correct length!
+      else {
+          try {
+              // Create a formatter object, that fits the ddmmyy-XXXX pattern of CPR
+              DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("ddMMuu");
+              // Parse the first 6 digits in the string assigned to the variable cpr
+              LocalDate birthdate = LocalDate.parse(cpr.substring(0, 6), dateFormatter);
+          }
+          catch (java.time.format.DateTimeParseException ex) {
+              valid = false;
+          }
+      }
+      return valid;
+    }
+}
+```
+
+#### DataValidatorTest.java
+
+``` java
+package dk.diku.systemudvikling2021;
+
+import org.junit.jupiter.api.Assertions;
+
+class DataValidatorTest {
+
+    @org.junit.jupiter.api.Test
+    void isValidCprNotValid() {
+        DataValidator validator = new DataValidator();
+        String input = "abc";
+        Assertions.assertFalse(validator.isValidCPR(input));
+    }
+    @org.junit.jupiter.api.Test
+    void isValidCprNotValidTooShort() {
+        DataValidator validator = new DataValidator();
+        String input = "123456-123";
+        Assertions.assertFalse(validator.isValidCPR(input));
+    }
+    @org.junit.jupiter.api.Test
+    void isValidCprValid1() {
+        DataValidator validator = new DataValidator();
+        String input = "120356-1234";
+        Assertions.assertTrue(validator.isValidCPR(input));
+    }
+    @org.junit.jupiter.api.Test
+    void isNotValidCprInvalidDate() {
+        DataValidator validator = new DataValidator();
+        String input = "991702-1234";
+        Assertions.assertFalse(validator.isValidCPR(input));
+    }
+}
+```
+
+
 ## Task 2
 ### ArrayLists
 
