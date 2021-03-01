@@ -26,8 +26,8 @@ JavaFX works with a few different concepts, that are important to know.
 - **Stage**: A window is called a `Stage` in JavaFX
 - **Scene**: The *contents* of a `Stage` (window) is called a `Scene`
 - **Scene Graph**: The *contents* of a `Stage` are organized into a `Scene Graph`
-- **Node**: Some content we can put into a `Scene Graph`, e.g. a textbox, a button or some pretty images.
-- **Group**: A group of nodes, i.e. content. A group is used for layout in the GUI, e.g. in a grid view or a tile view.
+- **Node**: Some content we can put into a `Scene Graph`, e.g. a textbox, a button or some pretty images. Nodes can contain other nodes.
+- **Event**: When the user clicks a button, drags the mouse, moves the window etc., it is an `Event`. We can detect events in our code and do different things when they happen.
 
 These concepts will make more sense when we have used them.
 
@@ -76,8 +76,6 @@ public class Main extends Application {
         // Finally, show the stage!
         primaryStage.show();
     }
-
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -119,7 +117,6 @@ public class Main extends Application {
         textCprNumber.setPromptText("Enter your CPR Number");   // display some useful text to the user
         textCprNumber.setFocusTraversable(false);   // needed to be able to display the initial PromptText
         textCprNumber.setMaxWidth(150);         // Make sure the CPR field doesn't get too wide
-
         textCprNumber.setTooltip(new Tooltip("CPR Number must be in the format ######-####")); // mouseover tooltip
         resultField.setPromptText("Enter a CPR number in the above field and click on 'Hit me'. This field will then show if the format of the CPR number can be validated");
         resultField.setPrefHeight(100);         // set the preferable height of the result field
@@ -172,3 +169,142 @@ public class Main extends Application {
     }
 }
 ```
+
+Phew, that is a lot of code. Let's break it down.
+
+
+To begin with, we have almost the same structure as all our "main"-classes.
+
+``` java
+... imports here
+
+public class Main extends Application {
+    ...
+    @Override
+    public void start(Stage primaryStage) {     // a Stage is the main window for a JavaFX application
+    ...
+    }
+
+    public void clearFields() { // method to clear text fields
+    ...
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+```
+
+We have a class, with the name `Main`. Our java file is called `Main.java`.
+
+The first line after the imports is:
+
+``` java
+public class Main extends Application {
+```
+
+We have not covered inheritance in java/object-oriented, so a brief explanation:
+`Application` is a class defined in JavaFX. It is the "main class" of a GUI made with JavaFX and will handle things like creating a a window for us.
+The `extends` keyword, means that our class, `Main` **is a** `Application`, i.e. it *inherits* all the methods defined in Application. This allows us to reuse everything in the `Application` class, while *extending* it with whatever we need.
+This part is not important to understand. The important point is, that whenever we create a GUI with JavaFX, the Main class of our program should *extend* the class `Application`.
+
+
+The next two lines are:
+``` java
+TextField textCprNumber = new TextField();  // a TextField is a single lined field
+TextArea resultField = new TextArea();      // a TextArea is a multiline text field - more advanced than TextField
+```
+
+JavaFX has defined a lot of nice building blocks for us, to design a GUI with.
+Here we create two of them, a `TextField` where a user can input a single line of text, and a `TextArea`, where a user (or we) can input multiple lines of text.
+
+
+Then we have the two lines:
+``` java
+    @Override
+    public void start(Stage primaryStage) {     // a Stage is the main window for a JavaFX application
+```
+
+Remember that `Main` *extends* `Application`.
+In the `Application` class, there is a method named `start`. When we launch our java program with a JavaFX GUI, the `start`-method is automatically called.
+The `@Override` annotation means that we want to *override* the method in `Application`, or *reimplement* the method. We want to make our own version, so we can decide what is displayed in the window.
+
+The `start`-method takes one argument, `primaryStage` of type `Stage`. A `Stage` is a window, that JavaFX creates for us, that we will put our `TextField`s, `TextArea`s and `Button`s into.
+
+
+Next up, the following line:
+
+``` java
+primaryStage.setTitle("Enter CPR number and hit the button");   // set the title shown in the title bar
+```
+We use the `primaryStage` object (our window!) and call the `setTitle` method, which will set the window title to whatever string we put into it.
+This will usually be the name of our program, i.e. `Chrome`, `Firefox`, `Discord`, `iTunes` etc.
+
+
+Now we are finally getting to the interesting parts:
+``` java
+GridPane grid = new GridPane();         // create a GridPane for a nice even flexible screen layout
+grid.setAlignment(Pos.CENTER);          // Align the grid to the center of the application window
+Label CPR = new Label("CPR: ");      // create a text label displaying "CPR"
+grid.add(CPR, 0, 0);              // put the newly created label in the top left corner of the grid (0,0)
+```
+
+So, the first line creates a new `GridPane` object. A `GridPane` is a layout, that allows us to specify where our `TextField`s, `TextArea`s and `Button`s will appear.
+The second line sets the *alignment* of our new grid, to be at the center of our window.
+The third line creates a `Label`. A `Label` can be used when we want to write text, that the user cannot edit.
+The fourth line *adds* our new label to our `grid`, placing it at the top left corner.
+
+
+So far so good.
+The next lines:
+``` java
+textCprNumber.setPromptText("Enter your CPR Number");   // display some useful text to the user
+textCprNumber.setFocusTraversable(false);   // needed to be able to display the initial PromptText
+textCprNumber.setMaxWidth(150);         // Make sure the CPR field doesn't get too wide
+textCprNumber.setTooltip(new Tooltip("CPR Number must be in the format ######-####")); // mouseover tooltip
+```
+
+These four lines will set up our `TextField` object. First we set the "prompt text", i.e. text that will appear until the user fills in the field.
+The `setMaxWidth` method will set a maximum length (width) of our textfield.
+The `setToolTip`-method allows us to display a helpful message if the user hovers their mouse over the field.
+
+
+We then setup the `resultField`, our `TextArea`:
+
+``` java
+resultField.setPrefHeight(100);         // set the preferable height of the result field
+resultField.setPrefWidth(300);          // set the preferable width of the result field
+resultField.setEditable(false);         // make sure the user can't edit the result field
+resultField.setWrapText(true);          // ensure the text can be wrapped in the result field
+```
+We define what height and width (in pixels) we prefer and make sure the user can not edit the field.
+We use the `setWrapText`-method, to ensure a line that doesn't fit into the window will automatically be broken into multiple lines.
+
+
+Next up, buttons!
+
+``` java
+Button buttonHitMe = new Button("Hit me");          // create a clickable button
+Button buttonClearAll = new Button("Clear All");    // create another clickable button
+```
+
+`Button` is a JavaFX class that allows us to create a button, which the user can click. Very useful.
+Here, we create two buttons. Next, we will decide what happens when we click them.
+
+
+We start by looking at the simplest button - the `buttonClearAll`:
+
+``` java
+buttonClearAll.setOnMouseClicked(event -> {
+        clearFields();  // call the method which clears all fields (see below)
+});
+```
+
+What happens here?
+The `Button` class can handle `Event`s. One such event is `onMouseClicked`. This `Event` is *fired* (happens) when the user clicks the button.
+The `setOnMouseClicked`-method allows us to *attach* a method to that event. The method will then be called, whenever the user clicks the button.
+
+In this case, we use a *lambda* method. A *lambda* method is simply a method that doesn't have a name and isn't tied to a class. We can use lambda-methods when we only need the method once, like here, when we need it only for the button.
+
+The `event` is the parameter/argument to our lambda-method. In this case we don't use the event for anything.
+Between the `{` and `}` we have the *body* of our method.
