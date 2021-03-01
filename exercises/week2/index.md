@@ -100,98 +100,6 @@ This will require you to define what a valid name and address is.
 
 
 ### Solution Task 1
-#### Main.java
-
-``` java
-package dk.diku.systemudvikling2021;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner inputScanner = new Scanner(System.in);
-        // Create a DataValidator object
-        DataValidator dv = new DataValidator();
-        System.out.print("Please enter CPR: ");
-        // Get (first attempt) user input (and remove leading and trailing whitespace)
-        String input = inputScanner.nextLine().trim();
-        // While the input is not valid, repeat
-        while (!dv.isValidCPR(input)) {
-            System.out.print("Invalid cpr. Try again: ");
-            input = inputScanner.nextLine().trim();
-        }
-        // At this point, the cpr stored in `input` is a valid CPR.
-        System.out.println("The entered CPR: " + input);
-
-
-	    PatientRegister patientRegister = new PatientRegister();
-	    Patient patient1 = new Patient("Patient Zero", "010165-1213");
-	    Patient patient2 = new Patient("Not Sick At All", "010170-1215");
-        Patient patient3 = new Patient("Very Sicksen", "051290-1511");
-
-        patientRegister.addPatient(patient1);
-        patientRegister.addPatient(patient2);
-        patientRegister.addPatient(patient3);
-        System.out.println("3 patients added.");
-        System.out.println("All current patients:");
-        patientRegister.printPatients();
-        patientRegister.removePatient(patient1);
-        System.out.println("1 patient removed.");
-        System.out.println("All current patients:");
-        patientRegister.printPatients();
-    }
-}
-
-```
-
-#### Patient.java
-
-``` java
-package dk.diku.systemudvikling2021;
-
-public class Patient {
-    public String name;
-    public String cpr;
-    public Patient(String name, String cpr) {
-        this.name = name;
-        this.cpr = cpr;
-    }
-}
-```
-
-#### PatientRegister.java
-
-``` java
-package dk.diku.systemudvikling2021;
-
-import java.util.ArrayList;
-
-public class PatientRegister {
-    public ArrayList<Patient> patients;
-    public PatientRegister() {
-        this.patients = new ArrayList<Patient>();
-    }
-    public void addPatient(Patient patient) {
-        if (!patients.contains(patient)) {
-            patients.add(patient);
-        }
-    }
-    public void removePatient(Patient patient) {
-        patients.remove(patient);
-    }
-    public void printPatients() {
-        for (Patient p: patients) {
-            System.out.println("Name: " + p.name + ", cpr: " + p.cpr);
-        }
-    }
-    public ArrayList<Patient> getPatients() {
-        return this.patients;
-
-    }
-}
-```
 
 #### DataValidator.java
 
@@ -392,3 +300,98 @@ It should return either the String "male" or the String "female".
 
 - Write unit-tests for the getAge-method
 - Write unit-tests for the getGender-method
+
+### Task 3.1, 3.2 and 3.3 Solution
+
+#### Main.java
+
+``` java
+package dk.diku.systemudvikling2021;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner inputScanner = new Scanner(System.in);
+        // Create a DataValidator object
+        DataValidator dv = new DataValidator();
+        System.out.print("Please enter CPR: ");
+        // Get (first attempt) user input (and remove leading and trailing whitespace)
+        String input = inputScanner.nextLine().trim();
+        // While the input is not valid, repeat
+        while (!dv.isValidCPR(input)) {
+            System.out.print("Invalid cpr. Try again: ");
+            input = inputScanner.nextLine().trim();
+        }
+        // At this point, the cpr stored in `input` is a valid CPR.
+        System.out.println("The entered CPR: " + input);
+
+
+	    PatientRegister patientRegister = new PatientRegister();
+	    Patient patient1 = new Patient("Patient Zero", "010165-1213");
+	    Patient patient2 = new Patient("Not Sick At All", "010170-1215");
+        Patient patient3 = new Patient("Very Sicksen", "051290-1511");
+
+        patientRegister.addPatient(patient1);
+        patientRegister.addPatient(patient2);
+        patientRegister.addPatient(patient3);
+        System.out.println("3 patients added.");
+        System.out.println("All current patients:");
+        patientRegister.printPatients();
+        patientRegister.removePatient(patient1);
+        System.out.println("1 patient removed.");
+        System.out.println("All current patients:");
+        patientRegister.printPatients();
+    }
+}
+
+```
+
+#### Patient.java
+
+``` java
+package dk.diku.systemudvikling2021;
+
+public class Patient {
+    public String name;
+    public String cpr;
+    public Patient(String name, String cpr) {
+        this.name = name;
+        this.cpr = cpr;
+    }
+}
+```
+
+#### PatientRegister.java
+
+``` java
+package dk.diku.systemudvikling2021;
+
+import java.util.ArrayList;
+
+public class PatientRegister {
+    public ArrayList<Patient> patients;
+    public PatientRegister() {
+        this.patients = new ArrayList<Patient>();
+    }
+    public void addPatient(Patient patient) {
+        if (!patients.contains(patient)) {
+            patients.add(patient);
+        }
+    }
+    public void removePatient(Patient patient) {
+        patients.remove(patient);
+    }
+    public void printPatients() {
+        for (Patient p: patients) {
+            System.out.println("Name: " + p.name + ", cpr: " + p.cpr);
+        }
+    }
+    public ArrayList<Patient> getPatients() {
+        return this.patients;
+
+    }
+}
+```
