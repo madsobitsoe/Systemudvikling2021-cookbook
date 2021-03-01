@@ -103,6 +103,7 @@ public class Main extends Application {
     // We declare the "Text field/area" here in order to be able to use them in the clearFields method;
     TextField textCprNumber = new TextField();  // a TextField is a single lined field
     TextArea resultField = new TextArea();      // a TextArea is a multiline text field - more advanced than TextField
+    DataValidator dataValidator = new DataValidator(); // create and instance of the  DataValidator class from week 2
     @Override
     public void start(Stage primaryStage) {     // a Stage is the main window for a JavaFX application
         primaryStage.setTitle("Enter CPR number and hit the button");   // set the title shown int th title bar
@@ -128,18 +129,14 @@ public class Main extends Application {
 
         // now create an event handler which will be called when the button is clicked
         buttonHitMe.setOnMouseClicked(event -> {
-                // here we check the input against a regular expression - we could
-                // also choose the call an input validator (which we created in Week 2)
-                // This one looks pretty hectic but basically checks if the first 6 numbers forms a valid date
-                // and they are follow by a '-' and then by 4 digits.
-                if (!textCprNumber.getText().matches("^(((0[1-9]|[12][0-9]|30)(0[13-9]|1[012])|31(0[13578]|1[02])|(0[1-9]|1[0-9]|2[0-8])02)[0-9]{2}|2902((([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))-\\d{4}")) {
-                    // when it doesn't match the pattern (######-####)
-                    // display a warning to thes user
-                    resultField.setText("CPR number is not in correct format");
-                } else {
+                if (dataValidator.isValidCPR(textCprNumber.getText())) {
                     // we have a valid input which we display in the result field
                     String text = textCprNumber.getText();
                     resultField.setText("CPR number: " + text);
+                }
+                else {
+                    // display a warning to the user
+                    resultField.setText("CPR number is not in correct format");
                 }
         });
 
@@ -148,7 +145,6 @@ public class Main extends Application {
         });
 
         // Now place the remaining fields in the grid
-
         grid.add(textCprNumber, 1, 0);  // second column, first row
         grid.add(buttonHitMe, 2, 0);    // third column, first row
         grid.add(resultField, 1, 1);    // first column, second row
@@ -308,3 +304,73 @@ In this case, we use a *lambda* method. A *lambda* method is simply a method tha
 
 The `event` is the parameter/argument to our lambda-method. In this case we don't use the event for anything.
 Between the `{` and `}` we have the *body* of our method.
+Here we just call another method, `clearFields()` (which will reset the text fields for us).
+
+Let's look at the first button now:
+
+``` java
+// now create an event handler which will be called when the button is clicked
+buttonHitMe.setOnMouseClicked(event -> {
+        if (dataValidator.isValidCPR(textCprNumber.getText())) {
+            // we have a valid input which we display in the result field
+            String text = textCprNumber.getText();
+            resultField.setText("CPR number: " + text);
+        }
+        else {
+            // display a warning to the user
+            resultField.setText("CPR number is not in correct format");
+        }
+});
+```
+
+We once again *attach* a *lambda method* to the `Button`.
+In this method, we have an if-statement.
+We use the `getText()`-method of the `textCprNumber` `TextField`, to get the String, typed in by the user.
+We give that `String` as the argument to our `isValidCPR` method in the `DataValidator` class.
+
+If the user did in fact input a valid CPR, we get the string they entered, and update the `TextArea` with the name `resultField`.
+If not, we display a message in the `resultField` `TextArea` to the user, saying the CPR was invalid.
+
+We are almost done!
+
+``` java
+grid.add(textCprNumber, 1, 0);  // second column, first row
+grid.add(buttonHitMe, 2, 0);    // third column, first row
+grid.add(resultField, 1, 1);    // first column, second row
+grid.add(buttonClearAll, 2, 4); // third column, fifth row
+```
+
+These four lines will place our `TextField`, `TextArea` and two `Button`s in our `GridPane`.
+
+The last lines of the `start`-method are:
+
+``` java
+    Scene scene = new Scene(grid, 600, 400); // create an scene window 600 x 400 pixels
+    primaryStage.setScene(scene);                   // add the scene to the stage / application window
+    primaryStage.show();                 // display the stage - important! otherwise nothing happens :-)
+}
+```
+
+First, we create a `Scene` object, named `scene`. We give the `grid` as the *root node* and set the window size to 600 pixels width and 400 pixels height.
+Next, we *attach* the `scene` to the `primaryStage`, i.e. we tell JavaFX that what we want to display in our *stage* (window), is the *Scene*. The *Scene* contains our gridpane, which contains the two buttons, the `TextField` and the `TextArea`.
+
+Next up, the `clearFields`-method we used with one of the buttons.
+``` java
+public void clearFields() { // method to clear text fields
+    textCprNumber.clear();
+    resultField.clear();
+}
+```
+
+It simply calls the `clear()` method of the `TextField` and `TextArea`.
+
+
+Last, we have the `main`-method - where our program will start execution.
+
+``` java
+public static void main(String[] args) {
+    launch(args);
+}
+```
+
+Here, we call a method `launch`. The `launch` method is part of JavaFX, and will start our GUI-application for us, then call the `start` method we have written.
