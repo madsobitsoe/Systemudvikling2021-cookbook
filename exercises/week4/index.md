@@ -12,7 +12,7 @@ On my Mac, the string I input was:
 
 In general, you need
 
-``--module-path "PathToJavaFX" --add-modules javafx.controls,javafx.fxml`
+`--module-path "PathToJavaFX" --add-modules javafx.controls,javafx.fxml`
 where you replace `"PathToJavaFX"` with the path to the `lib`-folder in the JavaFX-folder you extracted from the zip-file.
 
 
