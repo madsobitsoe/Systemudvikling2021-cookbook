@@ -1,6 +1,6 @@
 # Solutions to Exercises week 4
 
-Answers and padlet for the conceptual exercise can be found on Absalon
+Sugested answer(s) and padlet(s) for the conceptual exercise(s) will be published on Absalon
 
 ## Programming Exercise - task 1
 
