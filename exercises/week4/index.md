@@ -1,4 +1,92 @@
-# Setting up a JavaFX project.
+# Solutions to Exercises week 4
+
+Answers and padlet for the conceptual exercise can be found on Absalon
+
+## Programming Exercise - task 1
+
+*A small health clinic needs to have control over the employees' days so calendars do not allow patients to perform bookings during employees´ holiday time. Create a program that allows a patient to book appointments in a clinic. First, store the list of holidays in the clinic (you can do so by using, for instance, an arraylist). Then receive as an input the patient wishes for an appointment, and control that such date is not in the dates of holidays of the clinic.  Ensure that your program works with multiple days off for one employee.*
+
+We solve the task with the following interpretation of the assigned task:
+A clinic has clinic holidays ('we are closed in week 28 and 29') and all the employees have individual holidays as well.
+So we will need a class to handle holidays and some classes to handle clinic and and employees.
+
+Create a default Command line Java project.
+Then create three class files: Holidays, Clinic and Employee.
+
+Content of the *Holiday* class, which create a list of holidays and add methods to add and remove holidays to the list, check if a holiday i on the list and finally a method to print the holidays:
+
+```java
+
+package com.company;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class Holidays {
+    public ArrayList<LocalDate> holidays;
+    public Holidays() {
+        this.holidays = new ArrayList<LocalDate>();
+    }
+    public void addHoliday(LocalDate holiday) {
+        if (! this.holidays.contains(holiday)) {this.holidays.add(holiday);}
+    }
+    public void removeHoliday(LocalDate holiday) {
+        if (this.holidays.contains(holiday)) {this.holidays.remove(holiday);}
+    }
+
+    public Boolean containsDay(LocalDate holiday) {
+        return this.holidays.contains(holiday);
+    }
+
+    public void printHolidays() {
+        System.out.println("Number of holidays: " + this.holidays.size());
+        for (LocalDate d : this.holidays) {
+            System.out.println(d);
+        }
+    }
+}
+```
+
+Content of the *Employee* class, which holds the name of the employee and the associated list of holidays:
+
+```java
+package com.company;
+import java.time.LocalDate;
+
+public class Employee {
+    String name;
+    Holidays holidays;
+    public Employee(String inputName, Holidays inputHolidays) {
+        this.name = inputName;
+        this.holidays = inputHolidays;
+    }
+    public String checkAvailable(Clinic clinic, LocalDate bookingDate){
+        if (clinic.holidays.containsDay(bookingDate)) {
+            return ("The clinic is closed on " + bookingDate);
+        } else if (this.holidays.containsDay(bookingDate)) {
+            return("Employee is on holiday on " + bookingDate);
+        } else {
+            return("Employee is available on " + bookingDate);
+        }
+    };
+}
+```
+
+Content of the *Clinic* class which hold the name of the clinic and a list of clinic holidays
+```java
+package com.company;
+
+public class Clinic {
+    Integer clinicNumber;
+    Holidays holidays;
+    public Clinic(Integer clinicNumber, Holidays inputHolidays) {
+        this.clinicNumber = clinicNumber;
+        this.holidays = inputHolidays;
+    }
+
+}
+```
+
 
 
 Follow the guide here: https://www.jetbrains.com/help/idea/javafx.html (or the detailed guide in the `Install Guide - Windows`-pdf, which you can find on absalon).
