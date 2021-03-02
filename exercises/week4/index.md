@@ -352,6 +352,6 @@ public class Main extends Application {
 Explanations to the various part is given in the line comments and in the [javafx](https://madsobitsoe.github.io/Systemudvikling2021-cookbook/javafx/) section.
 
 You can play with the grid posisitions and the Scene size (now set to 600,400). E.g.g What happens if you don't set it?
-You can see the grid lines by uncommenting the line ```java //grid.setGridLinesVisible(true);       // nice if you want to check the grid layout```
+You can see the grid lines by uncommenting the line `java //grid.setGridLinesVisible(true);       // nice if you want to check the grid layout`
 You can alter the existing nodes (TextField's TextArea, Labels and Buttons), add extra buttons, text fields, and text areas or whatever in order to create you own GUI
 
