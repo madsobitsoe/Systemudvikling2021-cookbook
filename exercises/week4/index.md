@@ -173,7 +173,7 @@ Employee is available on 2021-02-19
 
 The solution to both tasks as a whole is shown below:
 
-Create a JavaFX project (remember to add the JavaFX SDK libs and the vm-options as mentioned here https://madsobitsoe.github.io/Systemudvikling2021-cookbook/javafx/
+Create a JavaFX project (remember to add the JavaFX SDK libs and the vm-options as mentioned here [](https://madsobitsoe.github.io/Systemudvikling2021-cookbook/javafx/)
 
 Copy the Holidays, Employee and Clinic classes into the new project.
 
@@ -349,7 +349,7 @@ public class Main extends Application {
 }
 ```
 
-Explanations to the various part is given in the line comments and in https://madsobitsoe.github.io/Systemudvikling2021-cookbook/javafx/
+Explanations to the various part is given in the line comments and in [](https://madsobitsoe.github.io/Systemudvikling2021-cookbook/javafx/)
 
 You can play with the grid posisitions and the Scene size (now set to 600,400). E.g.g What happens if you don't set it?
 You can see the grid lines by uncommenting the line ```java //grid.setGridLinesVisible(true);       // nice if you want to check the grid layout```
