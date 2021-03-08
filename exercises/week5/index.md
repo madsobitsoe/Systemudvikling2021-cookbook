@@ -45,7 +45,7 @@ The patient class was defined in an earlier week's exercise. We just need to add
 
 So you will need to create a new JavaFX project (we already covered how to ) and - provided you already have created a patient class - copy the patient class into the new project. 
 
-An example of the Patient Class can be seen here:
+An example of the **Patient** class can be seen here:
 
 ```java
 package sample;
@@ -145,9 +145,9 @@ public class Patient {
 
 ## Re 4
 
-To solve task 4 I have actually created two classes *Holidays* and *Employee* as I could then reuse some of the functionality from the previous week's exercises:
+To solve task 4 I have actually created two classes **Holidays** and **Employee** as I could then reuse some of the functionality from the previous week's exercises:
 
-The Holidays Class can be seen here - explanations are in the code comments.
+The **Holidays** class can be seen here - explanations are in the code comments.
 
 ```java
 package sample;
@@ -251,7 +251,7 @@ public class Employee {
 }
 ```
 
-The Employee class also contains references to the Clinic class (we used it - in a quick and dirty solution - in order to check available holidays for an employee in a clinic) - and why not keep it here, so let us also add the Clinic class. (Alternatively you must remove all references):
+The **Employee** class also contains references to the **Clinic** class (we used it - in a quick and dirty solution - in order to check available holidays for an employee in a clinic) - and why not keep it here, so let us also add the **Clinic** class. (Alternatively you must remove all references for the code to work):
 
 ```java
 package sample;
@@ -276,6 +276,9 @@ public class Clinic {
 }
 ```
 
+## Re 2
+
+To solve this task I will introduce a **PatientRegister** class which can generate a list of patients, add and remove patients to the list and has a method to return all patients as a formatted list (and also a method to print the list to standard out.
 
 
 
