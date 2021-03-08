@@ -792,5 +792,5 @@ public class Main extends Application {
 
 ```
 
-A zipfile containing all the java files above can be downloaded here [week5.zip](week5.zip). Not that the controller and fxml files are left out, as they are not used (yet).
+A zipfile containing all the java files above can be downloaded here [week5.zip](week5.zip). Note that the controller and fxml files are left out, as they are not used (yet).
 
