@@ -457,7 +457,7 @@ We are now ready to create a GUI like:
 
 The Gui is made with a gridpane, labels, textfields (for input) and a textarea which is updated everytime a patient is registered.
 I have used the **DataValidator** class to check the users input and used css styling to color the imput fields which contains invalid input.
-![](email-error.png| width=300)
+![](email-error.png| width=300px)
 
 Last but not least I have introduced three useful methods: **capitalize()** can correct som user typos like "jaKob" to "Jakob". **clearTextFields()** takes a gridpane object as input and clears the context and eventual style (yellow background) of all textfields belonging to that gridpane. Finally **resetTextFields()** which will clear the content of all textfields that have a style set (and leave the textfields which do not have a style). This is useful so that the user will not have to retype already validated input.
 
