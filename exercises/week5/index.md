@@ -37,6 +37,8 @@ Add the following public get- and set-methods: (In IntelliJ IDEA you can use Alt
 - Scheduled days off
 
 
+**Note that The solution will be presented in the order 1,4,2,3**
+
 ## Re 1
 
 The patient class was defined in an earlier week's exercise. We just need to add email and some getters and setters.. (The trivial ones can be created using the Generate (Alt-Insert) menu.
@@ -140,6 +142,142 @@ public class Patient {
     }
 }
 ``` 
+
+## Re 4
+
+To solve task 4 I have actually created two classes *Holidays* and *Employee* as I could then reuse some of the functionality from the previous week's exercises:
+
+The Holidays Class can be seen here - explanations are in the code comments.
+
+```java
+package sample;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class Holidays {
+    private ArrayList<LocalDate> holidays;
+
+    public Holidays() {
+        // The constructor
+        this.holidays = new ArrayList<LocalDate>();
+    }
+    public void addHoliday(LocalDate holiday) {
+        // add a holiday to the list of holidays - only if it is not in the list already
+        if (! this.holidays.contains(holiday)) {this.holidays.add(holiday);}
+    }
+    public void removeHoliday(LocalDate holiday) {
+        // remove a holiday from the list of holidays - only if it is in the list already
+        if (this.holidays.contains(holiday)) {this.holidays.remove(holiday);}
+    }
+
+    public ArrayList<LocalDate> getHolidays() { // return a list of holidays
+        return holidays;
+    }
+
+    public Boolean containsDay(LocalDate holiday) { // Check of the date in in the list of holidays
+
+        return this.holidays.contains(holiday);
+    }
+
+    public void printHolidays() {
+        System.out.println("Number of holidays: " + this.holidays.size());
+            for (LocalDate d : this.holidays) {
+                System.out.println(d);
+        }
+
+    }
+
+    public Integer getSize() { // Return the number of holidays in the holidays list
+        return this.holidays.size();
+    }
+}
+```
+
+Now we are ready to copy the employee class into the project:
+
+
+```java
+package sample;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
+public class Employee {
+    private String firstName;
+    private String lastName;
+    private String employeeId;
+    private Holidays holidays;
+
+    public Holidays getHolidays() {
+        return holidays;
+    }
+
+    public void setHolidays(Holidays holidays) {
+        this.holidays = holidays;
+    }
+
+
+
+    public Employee(String firstName, String lastName, String employeeId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employeeId = employeeId;
+
+    }
+
+    public String checkAvailable(Clinic clinic, LocalDate bookingDate){
+        String bookingDateAsString=bookingDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        if (clinic.getHolidays().containsDay(bookingDate)) {
+            return ("The clinic is closed on " +  bookingDateAsString);
+        } else if (!(this.holidays==null) && this.holidays.containsDay(bookingDate)) {
+            return("Employee is on holiday on " + bookingDateAsString);
+        } else {
+            return("Employee is available on " + bookingDateAsString);
+        }
+    };
+
+    public void printHolidays() {
+        if (this.holidays != null) {
+            System.out.println("Number of holidays: " + this.holidays.getSize());
+            if (this.holidays.getSize() > 0) {
+                for (LocalDate d : this.holidays.getHolidays()) {
+                    System.out.println(d);
+                }
+            }
+        }
+    }
+
+}
+```
+
+The Employee class also contains references to the Clinic class (we used it - in a quick and dirty solution - in order to check available holidays for an employee in a clinic) - and why not keep it here, so let us also add the Clinic class. (Alternatively you must remove all references):
+
+```java
+package sample;
+
+public class Clinic {
+    // Class to hold a clinic and the associated holidays
+
+    private Integer clinicNumber;
+    private Holidays holidays;
+    public Clinic(Integer clinicNumber, Holidays inputHolidays) {
+        this.clinicNumber = clinicNumber;
+        this.holidays = inputHolidays;
+    }
+
+    public Holidays getHolidays() {
+        return holidays;
+    }
+
+    public void setHolidays(Holidays holidays) {
+        this.holidays = holidays;
+    }
+}
+```
+
+
+
 
 
 
