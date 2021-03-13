@@ -462,7 +462,7 @@ I have used the **DataValidator** class to check the users input and used css st
 
 Last but not least I have introduced three useful methods: **capitalize()** can correct som user typos like "jaKob" to "Jakob". **clearTextFields()** takes a gridpane object as input and clears the context and eventual style (yellow background) of all textfields belonging to that gridpane. Finally **resetTextFields()** which will clear the content of all textfields that have a style set (and leave the textfields which do not have a style). This is useful so that the user will not have to retype already validated input.
 
-Try to play with the GUI in order to understand the code - maybe there is something you can use in your project or at least act as inspiration :smiley:
+Try to play with the GUI in order to understand the code - maybe there is something you can use in your project or at least act as inspiration 😃
 
 Here is the full **Main** class containing the **main()** method:
 
