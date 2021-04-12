@@ -2,7 +2,7 @@
 
 Read more here: https://docs.oracle.com/javafx/2/get_started/fxml_tutorial.htm
 
-A Model View Controller pattern in JavaFX can be implemented by moving the GUI (View) definition to a FXML file.
+A Model View Controller pattern in JavaFX can be implemented by moving the GUI (View) definition to an FXML file.
 The Controller part will handle the initialization of the GUI and all the input handling and update of the Model.
 
 The Model is in this case the PatientRegister and "everything" around it :smile:
