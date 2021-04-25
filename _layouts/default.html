@@ -11,21 +11,79 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body>
+    <!-- Dropdown test -->
+<style>
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
 
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+
+    <!-- dropdown test end -->
     <header class="page-header" role="banner">
       <h1 class="project-name">SystemUdvikling 2021 - Java Cookbook</h1>
     </header>
 
     <main id="content" class="main-content" role="main">
       <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook">Cookbook</a> |
-      <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/exercises">Solutions to exercises week 1</a> |
-      <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/exercises/week2">Solutions to exercises week 2</a> |
-      <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/exercises/week4">Solutions to exercises week 4</a> |
-      <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/exercises/week5">Solutions to exercises week 5</a> |
       <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/unittesting">First Unit Testing Project</a> |
       <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/javafx">JavaFX quick start</a> |
-      <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/javafx-mvc">JavaFX MVC Intro</a>
+      <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/javafx-mvc">JavaFX MVC Intro</a> |
       <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/mysql/install">MySQL Installation & Setup</a>
+
+      <br>
+      <div class="dropdown">
+          <button class="dropbtn">Solutions</button>
+          <div class="dropdown-content">
+              <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/exercises">Exercises week 1</a>
+              <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/exercises/week2">Exercises week 2</a> |
+              <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/exercises/week4">Exercises week 4</a> |
+              <a href="https://madsobitsoe.github.io/Systemudvikling2021-cookbook/exercises/week5">Exercises week 5</a> |
+          </div>
+      </div>
+
       {{ content }}
 
       <footer class="site-footer">
