@@ -43,7 +43,7 @@ To create our first database, start by clicking the "Create a new schema in the 
 ![]({{ site.url }}/mysql/first_exercises/images/new_schema.png)
 
 
-Fill in a name for our new database, then click the small "apply"-button. I call my database "Animals":
+Fill in a name for our new database, then click the small "apply"-button. I call my database "PetStore":
 
 ![]({{ site.url }}/mysql/first_exercises/images/new_schema_1.png)
 
@@ -53,12 +53,17 @@ Click Apply to execute the query.
 ![]({{ site.url }}/mysql/first_exercises/images/new_schema_2.png)
 
 
-Now click the "Schemas"-tab. You should be able to see our newly created database, Animals!
+Now click the "Schemas"-tab. You should be able to see our newly created database, PetStore!
 
 ![]({{ site.url }}/mysql/first_exercises/images/new_schema_3.png)
 
 
 We can not do much with just a database. We need tables, in order to store data.
+
+
+# Creating a table in our database
+
+
 
 
 
