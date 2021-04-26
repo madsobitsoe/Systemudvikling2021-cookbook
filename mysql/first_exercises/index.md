@@ -149,11 +149,46 @@ Repeat this process to insert the remaining 4 animals, and/or any other animals 
 
 # Select statements - checking what we have in store
 
+Try to run the *SELECT-statement* from before again:
+
+``` sql
+SELECT * FROM PetStore.Animals;
+```
+
+You should see all the animals you just inserted into the database.
+
+Typically, we want to *filter* these results, so we can find all animals that live up to certain criteria.
+
+To do this, we can use a *SELECT-statement* with a *WHERE-clause*.
+
+Let's try to select all the animals that have the `type` *Dog*.
+
+``` sql
+SELECT * FROM PetStore.Animals WHERE type = "Dog";
+```
+
+You should get a result containing two rows - one row for each of the dogs in our pet store.
+
+What if our customer asks us for all animals that are either dogs or snakes?
+We can find out with a *WHERE-clause* again:
+
+``` sql
+SELECT * FROM PetStore.Animals WHERE type = "Dog" OR type = "Snake";
+```
 
 
 
 
 
+What if our customer is particularly nit-picky and just hates dogs.
+We can find all the animals that are *not* a Dog, with a *WHERE-clause* again:
+
+``` sql
+SELECT * FROM PetStore.Animals WHERE type <> "Dog";
+```
+
+
+The `<>` means "not equal to" in `MySQL`.
 
 
 
