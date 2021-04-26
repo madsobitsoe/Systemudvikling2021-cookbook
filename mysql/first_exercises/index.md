@@ -63,6 +63,38 @@ We can not do much with just a database. We need tables, in order to store data.
 
 # Creating a table in our database
 
+In the "Schemas"-tab, unfold the PetStore-database, right-click the "tables"-entry and select "Create Table..".
+
+![]({{ site.url }}/mysql/first_exercises/images/new_table_1.png)
+
+Now you will see a GUI-interface that helps us create a table, i.e. generates the DDL-SQL we need to create our table.
+
+We need to store information on the animals available in our pet-store.
+We need a primary key, ie. a unique identifier for each animal in the store.
+Call it `idAnimals` and make sure the `PK` column, the `NN` column and the `UQ` column are checked.
+`PK` means `Primary Key`, `NN` means `NOT NULL`, i.e. that this fields *needs* to have data, and `UQ` means unique, i.e. that only one row in the table can contain a specific key.
+
+
+We also need to store the type of animal, so we can count how many dogs we have for sale as well as figure out if we have run out of *python*!
+We can use the `MySQL`-Datatype `VARCHAR` for this. VARCHAR is similar to a string in java/python. We need to decide the maximum length of the string. 45 is the default and should be fine for our use. Check the `NN` column, as this information is needed for all animals.
+
+We also need to store the birthdate of each animal. Customers would probably like to know the age of their new pet.
+We can use the `MySQL`-Datatype `DATE` for this. Check the `NN` column, as this information is needed for all animals.
+Last but not least, an animal can have a name.
+We can again use the `VARCHAR`-datatype for this. If an animal is born in the store, we don't give it a name - so do not check the `NN` column.
+
+
+
+Click the small `apply` button when you are ready.
+![]({{ site.url }}/mysql/first_exercises/images/new_table_2.png)
+
+
+MySQL Workbench will now show you a piece of code, which again is SQL-DDL. Read the code and see if you can make some sense of what it does. You should be able to somewhat recognize the table we just designed. Click the large `Apply`-button to create the table.
+
+![]({{ site.url }}/mysql/first_exercises/images/new_table_3.png)
+
+
+
 
 
 
