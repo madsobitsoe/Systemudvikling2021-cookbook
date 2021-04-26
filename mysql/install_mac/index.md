@@ -42,23 +42,3 @@ https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.
 
 2) Install it
 Open the .dmg file you downloaded, drag the MySQL workbench icon into the Applications folder.
-
-3) Open MySQL Workbench and check everything is set up correct
-
-In the main window, under "MySQL Connections", you should see one database.
-
-![]({{ site.url }}/mysql/install_mac/images/install_mysql_mac_4.png)
-
-4) Create a new user
-
-Currently, only the root user (administrator) for the entire MySQL program exists.
-We will now create a user
-
-Click the one database from the screenshot above.
-
-
-<!-- Fill in steps... -->
-
-
-
-<!-- # Connecting from Java - Næste uges exercise -->
