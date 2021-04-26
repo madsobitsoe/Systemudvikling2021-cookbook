@@ -94,6 +94,67 @@ MySQL Workbench will now show you a piece of code, which again is SQL-DDL. Read 
 ![]({{ site.url }}/mysql/first_exercises/images/new_table_3.png)
 
 
+In the "Schema"-tab, you can now unfold the "Table"-entry and should see our new table.
+You can unfold the "Columns"-entry and should see the columns we created in our new table.
+
+![]({{ site.url }}/mysql/first_exercises/images/new_table_4.png)
+
+
+# Inserting data into our table
+
+
+We are ready to fill our store with animals.
+So far, we have only used SQL-DDL - the Data Definition Language - to create our database(schema) and our table.
+
+Now we will use SQL-DML - the Data Manipulation Language - to create entries in our database.
+
+To begin with we have 5 animals.
+
+| Type  | BirthDate (YYYY/MM/DD) | Name                         |
+|:------|:-----------------------|:-----------------------------|
+| Dog   | 2020/05/01             | Good Boi                     |
+| Cat   | 2015/12/24            | Santa Claws                  |
+| Snake | 2017/02/03            | Sir Hiss                     |
+| Cat   | 1950/03/14            | Meowser, destroyer of worlds |
+| Dog   | 2020/05/01            | Goodest Chunky Boi           |
+
+
+We can insert these into our database, by writing an *INSERT-statement*.
+
+Right-click the animals table and choose "Send to SQL-Editor" and "Insert Statement".
+
+![]({{ site.url }}/mysql/first_exercises/images/insert_table_1.png)
+
+This gives us a template for inserting data into our table.
+We adjust the template, so we can register the dog "Good Boi", then click the lightning icon to run our query.
+The bottom area of the window gives us the status (return code!) of the queries we run. If we did everything correct, we should see a green arrow.
+
+![]({{ site.url }}/mysql/first_exercises/images/insert_table_2.png)
+
+
+
+Before we insert the 4 remaining animals, let's try to look at the data we just inserted.
+
+We can do this with a *SELECT-statement*.
+Delete the insert statement and write `SELECT * FROM PetStore.Animals;`.
+Click the lightning icon to run your query. You should now see the *Good Boi* we just inserted.
+
+
+![]({{ site.url }}/mysql/first_exercises/images/insert_table_3.png)
+
+Wonderful!
+
+Repeat this process to insert the remaining 4 animals, and/or any other animals you want in your pet-store.
+
+
+# Select statements - checking what we have in store
+
+
+
+
+
+
+
 
 
 
