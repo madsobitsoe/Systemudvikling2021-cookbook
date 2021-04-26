@@ -123,13 +123,13 @@ We can insert these into our database, by writing an *INSERT-statement*.
 
 Right-click the animals table and choose "Send to SQL-Editor" and "Insert Statement".
 
-![]({{ site.url }}/mysql/first_exercises/images/insert_table_1.png)
+![]({{ site.url }}/mysql/first_exercises/images/insert_1.png)
 
 This gives us a template for inserting data into our table.
 We adjust the template, so we can register the dog "Good Boi", then click the lightning icon to run our query.
 The bottom area of the window gives us the status (return code!) of the queries we run. If we did everything correct, we should see a green arrow.
 
-![]({{ site.url }}/mysql/first_exercises/images/insert_table_2.png)
+![]({{ site.url }}/mysql/first_exercises/images/insert_2.png)
 
 
 
@@ -140,7 +140,7 @@ Delete the insert statement and write `SELECT * FROM PetStore.Animals;`.
 Click the lightning icon to run your query. You should now see the *Good Boi* we just inserted.
 
 
-![]({{ site.url }}/mysql/first_exercises/images/insert_table_3.png)
+![]({{ site.url }}/mysql/first_exercises/images/insert_3.png)
 
 Wonderful!
 
