@@ -40,22 +40,22 @@ To familiarize ourselves with MySQL and MySQL workbench, we will create a simple
 
 To create our first database, start by clicking the "Create a new schema in the connected server"-button:
 
-![]( {{ site-url }}/mysql/first_exercises/images/new_schema.png)
+![]({{ site.url }}/mysql/first_exercises/images/new_schema.png)
 
 
 Fill in a name for our new database, then click the small "apply"-button. I call my database "Animals":
 
-![]( {{ site-url }}/mysql/first_exercises/images/new_schema_1.png)
+![]({{ site.url }}/mysql/first_exercises/images/new_schema_1.png)
 
 Now a window with a small piece of code should pop up.
 This is an SQL query (DDL to be exact), that will create a new database (schema).
 Click Apply to execute the query.
-![]( {{ site-url }}/mysql/first_exercises/images/new_schema_2.png)
+![]({{ site.url }}/mysql/first_exercises/images/new_schema_2.png)
 
 
 Now click the "Schemas"-tab. You should be able to see our newly created database, Animals!
 
-![]( {{ site-url }}/mysql/first_exercises/images/new_schema_3.png)
+![]({{ site.url }}/mysql/first_exercises/images/new_schema_3.png)
 
 
 We can not do much with just a database. We need tables, in order to store data.
