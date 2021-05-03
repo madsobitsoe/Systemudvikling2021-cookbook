@@ -7,7 +7,7 @@ To connect to a MySQL database from a Java application, we need a module that ha
 Go to [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/) and download the *platform independent* connector.
 You want the zip-file, not the `tar.gz` file.
 
-![]({{ site.url }}/java_connect/images/download.png)
+![]({{ site.url }}/mysql/java_connect/images/download.png)
 
 
 Unzip the connector and copy the file `mysql-connector-java-8.0.24.jar` to the folder where you store your Java libraries. (This should probably be the same place as where you store the JavaFX libraries).
@@ -19,14 +19,14 @@ In IntelliJ, create a new project.
 
 Go to the *Module Settings*. In the *Dependencies* pane, add the `mysql-connector-java-8.0.24.jar` you just downloaded.
 
-![]({{ site.url }}/java_connect/images/add_module_1.png)
-![]({{ site.url }}/java_connect/images/add_module_2.png)
+![]({{ site.url }}/mysql/java_connect/images/add_module_1.png)
+![]({{ site.url }}/mysql/java_connect/images/add_module_2.png)
 
 
 Open MySQL workbench. In the "welcome"-window, right click the database instance you want to connect to and select "Copy JDBC Connection String to Clipboard".
 We need to copy this into our Java program, in order to connect to our database.
 
-![]({{ site.url }}/java_connect/images/jdbc_string.png)
+![]({{ site.url }}/mysql/java_connect/images/jdbc_string.png)
 
 Write off (or copy/paste) the code below into your project:
 
