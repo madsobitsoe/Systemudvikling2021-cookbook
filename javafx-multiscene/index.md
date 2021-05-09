@@ -28,8 +28,14 @@ The switching is done in MultiSceneController by calling setGridPane method) (in
 You can easily yourself add the fxml and controller files for the "Consult" menu items.
 
 
+![](ClinicApp-main.png)
+![](ClinicApp-newemp-menu.png)
+![](ClinicApp-addingemp.png)
+![](ClinicApp-newpatient-menu.png)
+![](ClinicApp-newpatient-added.png)
 
 
+A zip file of the src directory can be downloaded here: [multiscene.zip](multiscene.zip)
 
 
 
