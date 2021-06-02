@@ -1,4 +1,4 @@
-#Marshal help (XML)
+# Marshal help (XML)
 
 In the following I will provide an example on how to marshal (generate XML files from java objects) and
 unmarshal (generate java objects from XML files) and get it to work in an Intellij IDEA project.
