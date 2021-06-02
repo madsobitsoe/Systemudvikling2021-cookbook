@@ -239,7 +239,7 @@ The class imports three classes used for the XML operations.
 
 The abstract class JAXBContext provides the "link" between the java class that we annotated and the XML file. 
 
-@Mads: Please comment here!
+*@Mads: Please comment here!*
 
 The Marshall and Unmarshaller classes will do actual work of reading and writing the xml strings from the java class.
 
