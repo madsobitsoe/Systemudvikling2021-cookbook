@@ -3,8 +3,8 @@
 In the following I will provide an example on how to marshal (generate XML files from java objects) and
 unmarshal (generate java objects from XML files) and get it to work in an Intellij IDEA project.
 
-The example is partly inspired by https://stackabuse.com/reading-and-writing-xml-in-java ,
-partly by https://howtodoinjava.com/jaxb/solved-exception-in-thread-main-com-sun-xml-internal-bind-v2-runtime-illegalannotationsexception-3-counts-of-illegalannotationexceptions/
+The example is partly inspired by [https://stackabuse.com/reading-and-writing-xml-in-java](https://stackabuse.com/reading-and-writing-xml-in-java) ,
+partly by [https://howtodoinjava.com/jaxb/solved-exception-in-thread-main-com-sun-xml-internal-bind-v2-runtime-illegalannotationsexception-3-counts-of-illegalannotationexceptions/](https://howtodoinjava.com/jaxb/solved-exception-in-thread-main-com-sun-xml-internal-bind-v2-runtime-illegalannotationsexception-3-counts-of-illegalannotationexceptions/)
 and partly by hard work.
 
 ## Installation and project integration
@@ -12,10 +12,10 @@ and partly by hard work.
 The "original" java.xml.bind library is no longer part of the standard jdk, so you must do a little extra in order to
 get it work in your project in Intellij:
 
-On of the new implementations is called jakarta XML binding https://eclipse-ee4j.github.io/jaxb-ri/ an can be downloaded from 
-https://repo1.maven.org/maven2/com/sun/xml/bind/jaxb-ri/3.0.0/jaxb-ri-3.0.0.zip
+On of the new implementations is called jakarta XML binding [https://eclipse-ee4j.github.io/jaxb-ri/](https://eclipse-ee4j.github.io/jaxb-ri/) and can be downloaded from 
+[https://repo1.maven.org/maven2/com/sun/xml/bind/jaxb-ri/3.0.0/jaxb-ri-3.0.0.zip](https://repo1.maven.org/maven2/com/sun/xml/bind/jaxb-ri/3.0.0/jaxb-ri-3.0.0.zip)
 
-more about jakarta XML binding and JAXB here: https://en.wikipedia.org/wiki/Jakarta_XML_Binding
+more about jakarta XML binding and JAXB here: [https://en.wikipedia.org/wiki/Jakarta_XML_Binding](https://en.wikipedia.org/wiki/Jakarta_XML_Binding)
 
 Download and extract the zip file to some location (e.g. near the place where you have you javafx libraries)
 
