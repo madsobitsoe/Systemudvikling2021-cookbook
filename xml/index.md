@@ -3,7 +3,7 @@
 In the following I will provide an example on how to marshal (generate XML files from java objects) and
 unmarshal (generate java objects from XML files) and get it to work in an Intellij IDEA project.
 
-The example is partly inspired by (https://stackabuse.com/reading-and-writing-xml-in-java) ,
+The example is partly inspired by https://stackabuse.com/reading-and-writing-xml-in-java ,
 partly by https://howtodoinjava.com/jaxb/solved-exception-in-thread-main-com-sun-xml-internal-bind-v2-runtime-illegalannotationsexception-3-counts-of-illegalannotationexceptions/
 and partly by hard work.
 
