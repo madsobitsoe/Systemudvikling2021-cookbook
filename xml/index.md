@@ -308,7 +308,7 @@ Note: Writing C:\Users\ja\IdeaProjects\xmlmarshal\src\com\company\schema1.xsd
 ```
 
 The schema can be used during the unmarshaller process in order to validated the xml file and check if it follows the right structure and has the right elements.
-But that is for another cookbook recipie.
+But that is for another cookbook recipe.
 
 
 
