@@ -292,7 +292,8 @@ Hobbies is actually a list (0 or more elements) of strings kids is a list (0 or 
 
 Windows example:
 
-```C:\Users\ja\IdeaProjects\xmlmarshal\src\com\company>C:\Users\ja\javaSDK\jaxb-ri-3.0.0\jaxb-ri\bin\schemagen.bat Person.java
+```
+C:\Users\ja\IdeaProjects\xmlmarshal\src\com\company>C:\Users\ja\javaSDK\jaxb-ri-3.0.0\jaxb-ri\bin\schemagen.bat Person.java
 Java major version: 15
 Note: Writing C:\Users\ja\IdeaProjects\xmlmarshal\src\com\company\schema1.xsd
 ```
