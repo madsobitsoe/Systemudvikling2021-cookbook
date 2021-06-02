@@ -25,7 +25,16 @@ select 1. JARS or directories.
 
 Browse to the extrated directory of the jaxb-ri-3.0.0.zip fil that you have downloaded - all the way into the mod directory.
 Select all the jar files and press ok.
+
+![](addmodules.java.png)
+![](addmodules-mod.java.png)
+
+
+
 You should now see something like:
+
+![](addmodules-mod-after-ok.png)
+
 
 next press OK and you are ready to import the jakarta classes and do the marshal operations:
 
