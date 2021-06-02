@@ -1,7 +1,7 @@
-# Marshal help (XML)
+# Marshall help (XML)
 
-In the following I will provide an example on how to marshal (generate XML files from java objects) and
-unmarshal (generate java objects from XML files) and get it to work in an Intellij IDEA project.
+In the following I will provide an example on how to marshall (generate XML files from java objects) and
+unmarshall (generate java objects from XML files) and get it to work in an Intellij IDEA project.
 
 The example is partly inspired by [https://stackabuse.com/reading-and-writing-xml-in-java](https://stackabuse.com/reading-and-writing-xml-in-java) ,
 partly by [https://howtodoinjava.com/jaxb/solved-exception-in-thread-main-com-sun-xml-internal-bind-v2-runtime-illegalannotationsexception-3-counts-of-illegalannotationexceptions/](https://howtodoinjava.com/jaxb/solved-exception-in-thread-main-com-sun-xml-internal-bind-v2-runtime-illegalannotationsexception-3-counts-of-illegalannotationexceptions/)
@@ -36,11 +36,11 @@ You should now see something like:
 ![](addmodules-mod-after-ok.png)
 
 
-next press OK and you are ready to import the jakarta classes and do the marshal operations:
+next press OK and you are ready to import the jakarta classes and do the marshall operations:
 
 ## The example
 
-The code will import (unmarshal) an xml file with the following content.
+The code will import (unmarshall) an xml file with the following content.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -250,7 +250,7 @@ The abstract class JAXBContext provides the "link" between the java class that w
 
 *@Mads: Please comment here!*
 
-The Marshall and Unmarshaller classes will do actual work of reading and writing the xml strings from the java class.
+The Marshaller and Unmarshaller classes will do actual work of reading and writing the xml strings from the java class.
 
 I have placed the input xml file "person.xml" and the output xml files directly in the project top folder. You may want to change the path in your project.
 
